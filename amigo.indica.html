@@ -95,6 +95,18 @@
             <div class="fb-send" data-href="https://apps.facebook.com/742792935864343/"></div>
         </p>
         
+        <div id="requestsBtn" class="btn btn-success clearfix">Indique para sua Lista de Amigos</div>
+
+        <script>
+        document.getElementById('requestsBtn').onclick = function() {
+          FB.ui({method: 'apprequests',
+              message: 'This is a test message for the requests dialog.'
+          }, function(data) {
+            Log.info('App Requests Response', data);
+          });
+        }
+        </script>
+        
       </div>
     </div>
     
