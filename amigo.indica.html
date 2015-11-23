@@ -23,6 +23,8 @@
 
         <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
         <script>
+         
+         /*
          //LOGANDO-SE NA APP
          function onLogin(response) {
             if (response.status == 'connected') {
@@ -63,8 +65,8 @@
            js.src = "//connect.facebook.net/en_US/sdk.js";
            fjs.parentNode.insertBefore(js, fjs);
          }(document, 'script', 'facebook-jssdk'));
-         
-        
+         /
+        *
 
             
       </script>
@@ -82,42 +84,34 @@
         <p>Ainda em fase de testes, este APP tem por propósito compartilhar informações com amigos via API de notificações do Face SDK Javascript.</p>
         <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p>
         
-        <p>
-          <div id="fb-root"></div>
-            <script>(function(d, s, id) {
-              var js, fjs = d.getElementsByTagName(s)[0];
-              if (d.getElementById(id)) return;
-              js = d.createElement(s); js.id = id;
-              js.src = "//connect.facebook.net/pt_BR/sdk.js#xfbml=1&version=v2.5&appId=742792935864343";
-              fjs.parentNode.insertBefore(js, fjs);
-            }(document, 'script', 'facebook-jssdk'));
-            </script>
-            <div class="fb-send" data-href="https://apps.facebook.com/742792935864343/"></div>
-        </p>
         
-        <div id="requestsBtn" class="btn btn-success clearfix">Indique para sua Lista de Amigos</div>
-
+        <!-- Novo Recurso implementado -->
+        <div id="facebook_invite"></div>
+        <script src="http://connect.facebook.net/en_US/all.js"></script>
+        <a href="#" onclick="FBInvite()">Convidar Amigos do Facebook</a>
         <script>
-        document.getElementById('requestsBtn').onclick = function() {
-          FB.ui({method: 'apprequests',
-              message: 'This is a test message for the requests dialog.'
-          }, function(data) {
-            Log.info('App Requests Response', data);
-          });
-        }
-        
-        $(document).ready(function() {
-  			$.ajaxSetup({ cache: true });
-  			$.getScript('//connect.facebook.net/en_US/sdk.js', function(){
-    			FB.init({
-      			appId: '{your-app-id}',
-      			version: 'v2.4' // or v2.0, v2.1, v2.2, v2.3
-    		});     
-    		$('#loginbutton,#feedbutton').removeAttr('disabled');
-    			FB.getLoginStatus(updateStatusCallback);
+ 		FB.init({
+  			appId:'742792935864343',
+  			cookie:true,
+  			status:true,
+  			xfbml:true
+ 		});
+ 		
+ 		function FBInvite(){
+  			FB.ui({
+   				method: 'apprequests',
+   				message: 'Invite your Facebook Friends'
+  			},function(response) {
+   				if (response) {
+    					alert('Successfully Invited');
+   				} else {
+    					alert('Failed To Invite');
+   				}
   			});
-		});
-        </script>
+		 }
+	</script>
+       
+       
         
       </div>
     </div>
