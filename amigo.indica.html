@@ -69,10 +69,17 @@
         
 	//FUNCAO ADICIONAL PARA LISTAR OS CONTATOS DO FACE
 	function newInvite(users){
+    		/*
     		FB.ui({method: 'apprequests',
       			message: 'Seus Contatos para Convidar',
       			to: users.join(',')
     		});
+    		*/
+    		FB.ui({
+    			method: 'apprequests', 
+    			data: "https://apps.facebook.com/amigo-indica/" ,
+    			message: 'Convidar Amigos'
+    		}, requestCallback);
 	}
 
 	function loadFriends()
@@ -96,6 +103,9 @@
 
 
     		});
+    		
+    		
+    		
 	}
             
       </script>
