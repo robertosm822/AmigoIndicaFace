@@ -65,9 +65,38 @@
            js.src = "//connect.facebook.net/en_US/sdk.js";
            fjs.parentNode.insertBefore(js, fjs);
          }(document, 'script', 'facebook-jssdk'));
-         /
-        *
+         */
+        
+	//FUNCAO ADICIONAL PARA LISTAR OS CONTATOS DO FACE
+	function newInvite(users){
+    		FB.ui({method: 'apprequests',
+      			message: 'Seus Contatos para Convidar',
+      			to: users.join(',')
+    		});
+	}
 
+	function loadFriends()
+	{
+		 //get array of friends
+    		FB.api('/me/friends?fields=name,first_name,gender', function(response) {
+        		console.log(response);
+        		var divContainer=$('.facebook-friends');
+        		var testdiv = document.getElementById("test");
+
+        		var  users = [];
+        		for(var i=0; i<response.data.length; i++){
+            			if(response.data[i].gender == 'male'){
+                			testdiv.innerHTML += response.data[i].id + '<br />';
+            			}
+            			users.push(response.data[i].id);
+        		}
+
+        		console.log(users)
+        		newInvite(users);        
+
+
+    		});
+	}
             
       </script>
     </head>
