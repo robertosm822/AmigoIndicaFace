@@ -101,7 +101,10 @@ $(document).ready(function(){
         
         <h1 id="fb-welcome">App Amigo Indica</h1>
         <p>Ainda em fase de testes, este APP tem por propósito compartilhar informações com amigos via API de notificações do Face SDK Javascript.</p>
-        <p><a class="btn btn-primary btn-lg" href="#" role="button" id="popInvite">Convide seus Amigos </a></p>
+        
+        
+        <p><a class="btn btn-primary btn-lg" href="#" role="button" href="#" onclick="permitirDadosAmigos();"> Primeiro - Permitir ver Amigos </a></p>
+        <p><a class="btn btn-primary btn-lg" href="#" role="button" id="popInvite">Segundo - Listar Amigos </a></p>
         <p>
             
             <div id="fb-root"></div>
@@ -384,7 +387,7 @@ FB.ui({
   title: 'Enviar a seus amigos',
   message: 'Minha mensagem personalizada aqui ....',
   data: "URL Personalizada com mensagem",
-  link: 'http://www.nytimes.com/interactive/2015/04/15/travel/europe-favorite-streets.html',
+  link: 'https://apps.facebook.com/amigo-indica/?parametro=robertomelo',
 });
 
 //var user_ids = ids.join(',');
@@ -393,48 +396,51 @@ FB.ui({
 
 
 //resgatar dados de amigos dos seus contatos
-function listarDadosAmigos(){    
+function permitirDadosAmigos(){    
 	FB.ui({
-	appId: '742792935864343',
-   	method: 'permissions.request',
-   'perms': 'user_birthday,email,read_friendlists,user_relationship_details,read_stream',
-   'display': 'iframe'
-  },
-  function(response) {
-    // check response.perms that it has all the required permissions...  if so, continue to next page.
-    // TODO should be a better way to do this since UI checks perms
+			appId: '742792935864343',
+   			method: 'permissions.request',
+   			'perms': 'user_birthday,email,user_friends',
+   			'display': 'iframe'
+  		},
+  		function(response) {
+    		// check response.perms that it has all the required permissions...  if so, continue to next page.
+    		console.log(response.data);
+    		//window.location.reload();
+    		//------------------------------------------------
+    		FB.api(
+    		"/me/taggable_friends?limit=400",
+    		function (response) {
+      			if (response && !response.error) {
+        			/* handle the result */
+        			//ordenando por nomes response.data.sort(sortByName);
+        			var Amigos = response.data.sort(sortByName);
+        			var ListaAmigos = '';
+        			for (i=0;i< Amigos.length;i++){
+        				console.log( Amigos[i].name);
+        				//concatenando todos os contados em uma unica variavel
+        				ListaAmigos += '<tr><td> <input type="checkbox" name="friendids[]" class="checkbox" value="' + Amigos[i].id + '" /></td> <td><img src="'+Amigos[i].picture.data.url+'" /> </td><td> '+ Amigos[i].name +' </td> </tr>';
+        				console.log("\n\n");
+        				console.log(Amigos[i].id);
+        			}
+        			//exibindo a lista de amigos
+        			$('#listAmigos table').html(ListaAmigos);
+        		
+      				}
+
+    			} 		
+    		
+			);
+		//------------------------------------------------
+
+  		}
+	);
  
-    if (response.perms != null && isSetProperSubset(permissions.split(","), response.perms.split(","))) {
-      top.location.href = "http://apps.facebook.com/742792935864343/"+nextUrl;
-    }
-    console.log(response);
-  }
-);
- 
-function isSetProperSubset(subset, superset) {
-  // first check lengths
-  if (subset.length > superset.length) {
-    return false;
-  }
- 
-  var lookup = {};
- 
-  for (var j in superset) {
-    lookup[superset[j]] = superset[j];
-  }
- 
-  for (var i in subset) {
-    if (typeof lookup[subset[i]] == 'undefined') {
-      return false;
-    } 
-  }
-  return true;
-}
 }
 </script>
 <a href="#" onclick="mostrarQuery();">Teste Retorno</a>
 <br><br>
-<a href="#" onclick="listarDadosAmigos();">Dados de Amigos</a>
+
 
         
     </body>
