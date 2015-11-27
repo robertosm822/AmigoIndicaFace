@@ -1,8 +1,5 @@
 <!doctype html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang=""> <!--<![endif]-->
+<html lang="pt">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -21,96 +18,79 @@
         <link rel="stylesheet" href="css/bootstrap-theme.min.css">
         <link rel="stylesheet" href="css/main.css">
 
-        <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+ <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.js"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.js"><\/script>')</script>
+
         <script>
          
-         /*
-         //LOGANDO-SE NA APP
-         function onLogin(response) {
-            if (response.status == 'connected') {
-              FB.api('/me?fields=first_name', function(data) {
-                var welcomeBlock = document.getElementById('fb-welcome');
-                welcomeBlock.innerHTML = 'Seja Bem Vindo, ' + data.first_name + '!';
-              });
-            }
-          }           
-            
-        window.fbAsyncInit = function() {
-          FB.init({
-            appId      : '742792935864343',
-            xfbml      : true,
-            version    : 'v2.5'
-          });
+  //Teste api 	
+ 
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '742792935864343',
+      xfbml      : true,
+      version    : 'v2.5',
+      channelUrl : 'http://192.185.212.57/amigo_indica/amigo.indica.html',
+      status     : true, // check login status
+      cookie     : true, // enable cookies to allow the server to access the session
+      authResponse: true,
+      oauth  : true,
+      frictionlessRequests: true
+    });
+    
+    FB.getLoginStatus(function(response){
+        console.log(response.authResponse.accessToken);
+        $('#access_token').val(response.authResponse.accessToken);
+        console.log(response.authResponse.userID);
+        $('#idUser').val(response.authResponse.userID);
+    });
+    
+    
+    
+    
+    
+    
+  };
 
-          // ADD ADDITIONAL FACEBOOK CODE HERE
-            //EFETUANDO LOGIN NA APP
-            FB.getLoginStatus(function(response) {
-                // Check login status on load, and if the user is
-                // already logged in, go directly to the welcome message.
-                if (response.status == 'connected') {
-                  onLogin(response);
-                } else {
-                  // Otherwise, show Login dialog first.
-                  FB.login(function(response) {
-                    onLogin(response);
-                  }, {scope: 'user_friends, email'});
-                }
-            });
-        };
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id; js.async = true;
+     js.src = "//connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
 
-        (function(d, s, id){
-           var js, fjs = d.getElementsByTagName(s)[0];
-           if (d.getElementById(id)) {return;}
-           js = d.createElement(s); js.id = id;
-           js.src = "//connect.facebook.net/en_US/sdk.js";
-           fjs.parentNode.insertBefore(js, fjs);
-         }(document, 'script', 'facebook-jssdk'));
-         */
-        
-	//FUNCAO ADICIONAL PARA LISTAR OS CONTATOS DO FACE
-	function newInvite(users){
-    		/*
-    		FB.ui({method: 'apprequests',
-      			message: 'Seus Contatos para Convidar',
-      			to: users.join(',')
-    		});
-    		*/
-    		FB.ui({
-    			method: 'apprequests', 
-    			data: "https://apps.facebook.com/amigo-indica/" ,
-    			message: 'Convidar Amigos'
-    		}, requestCallback);
-	}
+function carregarAmigos(){
+$(document).ready(function(){
+    FB.api(
+    		"/me/taggable_friends?limit=400",
+    		function (response) {
+      			if (response && !response.error) {
+        			/* handle the result */
+        			//ordenando por nomes response.data.sort(sortByName);
+        			var Amigos = response.data.sort(sortByName);
+        			var ListaAmigos = '';
+        			for (i=0;i< Amigos.length;i++){
+        				console.log( Amigos[i].name);
+        				//concatenando todos os contados em uma unica variavel
+        				ListaAmigos += '<tr><td> <input type="checkbox" name="friendids[]" class="checkbox" value="' + Amigos[i].id + '" /></td> <td><img src="'+Amigos[i].picture.data.url+'" /> </td><td> '+ Amigos[i].name +' </td> </tr>';
+        				console.log("\n\n");
+        				console.log(Amigos[i].id);
+        			}
+        			//exibindo a lista de amigos
+        			$('#listAmigos table').html(ListaAmigos);
+        		
+      			}
 
-	function loadFriends()
-	{
-		 //get array of friends
-    		FB.api('/me/friends?fields=name,first_name,gender', function(response) {
-        		console.log(response);
-        		var divContainer=$('.facebook-friends');
-        		var testdiv = document.getElementById("test");
-
-        		var  users = [];
-        		for(var i=0; i<response.data.length; i++){
-            			if(response.data[i].gender == 'male'){
-                			testdiv.innerHTML += response.data[i].id + '<br />';
-            			}
-            			users.push(response.data[i].id);
-        		}
-
-        		console.log(users)
-        		newInvite(users);        
-
-
-    		});
+    		} 		
     		
-    		
-    		
-	}
+		);
+		});
+}
             
       </script>
     </head>
-    <body>
+    <body onload="carregarAmigos()">
         <!--[if lt IE 8]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
@@ -119,39 +99,33 @@
     <div class="jumbotron">
       <div class="container">
         
-        <h1 id="fb-welcome">App Teste Amigo Indica</h1>
+        <h1 id="fb-welcome">App Amigo Indica</h1>
         <p>Ainda em fase de testes, este APP tem por propósito compartilhar informações com amigos via API de notificações do Face SDK Javascript.</p>
-        <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p>
+        <p><a class="btn btn-primary btn-lg" href="#" role="button" id="popInvite">Convide seus Amigos </a></p>
+        <p>
+            
+            <div id="fb-root"></div>
+            
+              <!-- TESTE DE LISTA DE AMIGOS EM PAGINA EXTERNA DO TIPO WEBSITE -->
+              <div id="facebook_invite"></div>
+              <script src="http://connect.facebook.net/en_US/all.js"></script> 
+             <!--  <a href="#" id="popInvite" >Invite Facebook Friends</a> -->
+              
+              <input type="hidden" id="idUser" value="" />
+              <input type="hidden" id="access_token" value="" />
+              <!-- TESTE DE LISTA DE AMIGOS EM PAGINA EXTERNA DO TIPO WEBSITE -->
+			
+
+				 <div id="requestsBtn" class="btn btn-success clearfix">Teste de Convite a Amigos</div>
+				 
+				 <br>
+				 <a href="#" onclick="getUserToken()">Get User Token</a>
+				 <br>
+				 
+				 <a href="https://www.facebook.com/dialog/send?app_id=742792935864343&link=http://192.185.212.57/amigo_indica/amigo.indica.html&redirect_uri=http://192.185.212.57/amigo_indica/amigo.indica.html" class="btn btn-success"> Notificar Amigos </a>
+        </p>
         
-        
-        <!-- Novo Recurso implementado -->
-        <div id="facebook_invite"></div>
-        <script src="http://connect.facebook.net/en_US/all.js"></script>
-        <a href="#" onclick="FBInvite()">Convidar Amigos do Facebook</a>
-        <script>
- 		FB.init({
-  			appId:'742792935864343',
-  			cookie:true,
-  			status:true,
-  			xfbml:true
- 		});
- 		
- 		function FBInvite(){
-  			FB.ui({
-   				method: 'apprequests',
-   				message: 'Invite your Facebook Friends'
-  			},function(response) {
-   				if (response) {
-    					alert('Successfully Invited');
-   				} else {
-    					alert('Failed To Invite');
-   				}
-  			});
-		 }
-	</script>
-       
-       
-        
+      
       </div>
     </div>
     
@@ -175,6 +149,21 @@
         </div>
       </div>
      -->
+     <div id="listAmigos" class="col-md-12">
+     	<table class="table table-striped">
+     		<tr id="listAmigo">
+     		 <td></td>
+     		 <td></td>
+     		 <td></td>
+     		</tr>
+     	</table>
+     </div>
+     
+     <br>
+     <div id="fb-root"></div>
+     
+     <!-- <div    class="fb-like"   data-share="true"   data-width="450"   data-show-faces="true"> </div> -->
+
       <hr>
 
       <footer>
@@ -183,21 +172,270 @@
     </div>
 
     <!-- /container -->        
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.js"></script>
-        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.js"><\/script>')</script>
-
+   
         <script src="js/vendor/bootstrap.min.js"></script>
 
         <script src="js/main.js"></script>
+        
+<script>
+//funcao de ordenar os contatos A a Z crescente
+function sortByName(a, b) {
+    var fn = function(x) { return x.name; };
+    var ln = function(x) { return x.last_name; };
+    if(ln(a) == ln(b)){
+        if(fn(a) == fn(b)) {
+            return 0;
+        }
+        return (fn(a) < fn(b)) ? -1 : 1;
+    }
+    return (ln(a) < ln(b)) ? -1 : 1;
+}
 
-        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
-        <script>
-            (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
-            function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
-            e=o.createElement(i);r=o.getElementsByTagName(i)[0];
-            e.src='//www.google-analytics.com/analytics.js';
-            r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
-            ga('create','UA-XXXXX-X','auto');ga('send','pageview');
-        </script>
+$(document).ready(function(){
+
+
+
+ $('#popInvite').click(function(){
+		
+ 		
+		
+		FB.api(
+    		"/me/taggable_friends?limit=400",
+    		function (response) {
+      			if (response && !response.error) {
+        			/* handle the result */
+        			//ordenando por nomes response.data.sort(sortByName);
+        			var Amigos = response.data.sort(sortByName);
+        			var ListaAmigos = '';
+        			for (i=0;i< Amigos.length;i++){
+        				console.log( Amigos[i].name);
+        				//concatenando todos os contados em uma unica variavel
+        				ListaAmigos += '<tr><td> <input type="checkbox" name="friendids[]" class="checkbox" value="' + Amigos[i].id + '" /></td> <td><img src="'+Amigos[i].picture.data.url+'" /> </td><td> '+ Amigos[i].name +' </td> </tr>';
+        				console.log("\n\n");
+        				console.log(Amigos[i].id);
+        			}
+        			//exibindo a lista de amigos
+        			$('#listAmigos table').html(ListaAmigos);
+        		
+      			}
+
+    		} 		
+    		
+		);
+		
+		
+	
+  });
+  
+	
+
+});
+
+	function FacebookInviteFriends()
+		{
+FB.ui(
+  {
+    method: 'send',
+    href: 'http://192.185.212.57/amigo_indica/amigo.indica.html',
+    to: 'AaLSvpSkLbWZzDQTS2iUpSiEXVkHcvirLnkxGEcuIt-GfUcooSBlRKAE58EWkHkaYJWn6qBwqivr2CF153IbZcgZd_WES4LkY8M8k14otjhwRg'
+  },
+  // callback
+  function(response) {
+    if (response && !response.error_message) {
+      alert('Posting completed.');
+    } else {
+      alert('Error while posting.');
+    }
+  }
+);
+		}
+		/*
+		
+         FB.api(
+  {
+    method: 'fql.query',
+    version    : 'v2.5',
+    access_token: 'CAAKjkPUVeBcBAHfPZAJZABNZBMzCOMxoaXJ2ZAeXxIGSkbfN3mIMzsXo5l14mldaZAqsTZArSr55YgiZBJaqKzCHU2GPYTNqwq8xFRbRiZBc12J5mOZBUmqTdt30BSSKWZASESzVkEIfZC3PuPdngUBBwqaIbRZAqKRYTUfT3lWBxsweZCKRTfa0zS46tR9CLWZB6tr6f2Hiu4pn7quyKoqsE2FstL',
+    query: 'SELECT uid,first_name,pic FROM user WHERE uid IN (SELECT uid2 FROM friend WHERE uid1 = me()) and is_app_user limit 6'
+  },
+  function(response) {
+    console.log(response);
+  }
+);
+*/
+
+
+
+      
+</script>
+
+     
+  
+
+<script>
+//registrar o access_token
+
+
+function getUserToken() {
+       	/*	
+       	$.getJSON('https://graph.facebook.com/me/friends?limit=300&access_token=CAAKjkPUVeBcBAHfPZAJZABNZBMzCOMxoaXJ2ZAeXxIGSkbfN3mIMzsXo5l14mldaZAqsTZArSr55YgiZBJaqKzCHU2GPYTNqwq8xFRbRiZBc12J5mOZBUmqTdt30BSSKWZASESzVkEIfZC3PuPdngUBBwqaIbRZAqKRYTUfT3lWBxsweZCKRTfa0zS46tR9CLWZB6tr6f2Hiu4pn7quyKoqsE2FstL', function(mydata) {
+        var output="<ul>";
+        for (var i in mydata.data) {
+            output+="<li>NAMA : " + mydata.data[i].name + "<br/>ID : " + mydata.data[i].id + "</li>";
+        }
+
+        output+="</ul>";
+        console.log(output);
+        //document.getElementById("placeholder").innerHTML=output;   
+        });
+        */
+        alert($('#idUser').val() );
+	var user_ID = $('#idUser').val() ;
+	var accessToken = $('#access_token').val();
+FB.api('/me', function(user) {   
+
+      this.query =  FB.Data.query("SELECT uid, name, pic_square FROM user WHERE uid = me() OR uid IN (SELECT uid2 FROM friend WHERE uid1 = me())", user_ID);
+
+                this.query.wait(function(rows) {
+
+                   console.log(rows); 
+
+                 });
+
+
+            });
+ 
+       
+}
+  		 
+//document.getElementById('requestsBtn').onclick = function() {
+ 	/*
+
+    FB.ui({
+    	app_id:'742792935864343',
+  		method: 'send',
+  		link: 'https://www.microsoftcloudroadshow.com/printbadge?uid=424e759f-d6a1-4c10-910e-d885f14fe12f',
+  		message: "Mais Uma 01",
+  		to: '100010659735774',
+  		redirect_uri : 'http://192.185.212.57/amigo_indica/amigo.indica.html'
+	});
+	*/
+	//FB.api('/me/friends', { appId      : '742792935864343', status: true, xfbml: true, version: 'v2.5', fields: 'id,name', installed: true, oauth  : true },function(response){
+    //	console.log(response);
+	//});
+	
+//	console.log(getUserToken());
+	
+	//FB.api('/me/friends',{appId: '742792935864343'}, function(response) {
+ 	//	console.log( response.data.sort(sortByName) );
+	//});
+ 
+//}
+
+//RESGATAR O ID do user
+console.log($('input#access_token').val());
+var accessToken = $('input#access_token').val();
+/*
+var user_id = FB.api('/me',{access_token: accessToken}, function(response) {
+  $('#idUser').val( response.id);  //armazenando o ID do user
+  
+  console.log(response.name);
+});
+*/
+console.log('/fql?q='+encodeURIComponent('SELECT uid FROM user WHERE uid=1011796148881922')+'&access_token='+$('input#access_token').val()+accessToken);
+
+function mostrarQuery(){
+
+/*
+    FB.ui({
+    	appId      : '742792935864343',
+        method: 'send',
+        message: 'Become my Buddie',
+        filters: ['app_non_users'],
+        link: 'https://www.microsoftcloudroadshow.com/printbadge?uid=424e759f-d6a1-4c10-910e-d885f14fe12f',
+        title: 'Become my Buddie'
+    },
+    function (response) {
+        if (response && response.request_ids) {
+            //if sucess do something
+            //How many people did the user invited?
+            var $howManyInvites = String(requests).split(',').length;
+        } else {
+            //  alert('canceled');
+            return false;
+        }
+    });
+    return false;
+    
+     FB.ui({
+    	app_id:'742792935864343',
+  		method: 'send',
+  		link: 'https://www.microsoftcloudroadshow.com/printbadge?uid=424e759f-d6a1-4c10-910e-d885f14fe12f',
+  		message: "Mais Uma 01",
+  		to: '100010659735774',
+  		redirect_uri : 'http://192.185.212.57/amigo_indica/amigo.indica.html'
+	});
+    */
+
+FB.ui({
+	//appId      : '742792935864343',
+  	method: 'send',
+ 	to: '100010659735774',
+  title: 'Enviar a seus amigos',
+  message: 'Minha mensagem personalizada aqui ....',
+  data: "URL Personalizada com mensagem",
+  link: 'http://www.nytimes.com/interactive/2015/04/15/travel/europe-favorite-streets.html',
+});
+
+//var user_ids = ids.join(',');
+
+}
+
+
+//resgatar dados de amigos dos seus contatos
+function listarDadosAmigos(){    
+	FB.ui({
+	appId: '742792935864343',
+   	method: 'permissions.request',
+   'perms': 'user_birthday,email,read_friendlists,user_relationship_details,read_stream',
+   'display': 'iframe'
+  },
+  function(response) {
+    // check response.perms that it has all the required permissions...  if so, continue to next page.
+    // TODO should be a better way to do this since UI checks perms
+ 
+    if (response.perms != null && isSetProperSubset(permissions.split(","), response.perms.split(","))) {
+      top.location.href = "http://apps.facebook.com/742792935864343/"+nextUrl;
+    }
+    console.log(response);
+  }
+);
+ 
+function isSetProperSubset(subset, superset) {
+  // first check lengths
+  if (subset.length > superset.length) {
+    return false;
+  }
+ 
+  var lookup = {};
+ 
+  for (var j in superset) {
+    lookup[superset[j]] = superset[j];
+  }
+ 
+  for (var i in subset) {
+    if (typeof lookup[subset[i]] == 'undefined') {
+      return false;
+    } 
+  }
+  return true;
+}
+}
+</script>
+<a href="#" onclick="mostrarQuery();">Teste Retorno</a>
+<br><br>
+<a href="#" onclick="listarDadosAmigos();">Dados de Amigos</a>
+
+        
     </body>
 </html>
