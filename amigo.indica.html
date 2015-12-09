@@ -39,7 +39,7 @@
     });
     
     FB.getLoginStatus(function(response){
-        console.log(response.authResponse.accessToken);
+        console.log("https://graph.facebook.com/v2.4/me?fields=friends&limit=400&access_token="+response.authResponse.accessToken);
         $('#access_token').val(response.authResponse.accessToken);
         console.log(response.authResponse.userID);
         $('#idUser').val(response.authResponse.userID);
@@ -73,7 +73,7 @@ $(document).ready(function(){
         			for (i=0;i< Amigos.length;i++){
         				console.log( Amigos[i].name);
         				//concatenando todos os contados em uma unica variavel
-        				ListaAmigos += '<tr><td> <input type="checkbox" name="friendids[]" class="checkbox" value="' + Amigos[i].id + '" /></td> <td><img src="'+Amigos[i].picture.data.url+'" /> </td><td> '+ Amigos[i].name +' </td> </tr>';
+        				ListaAmigos += '<tr><td> <input onclick="pesquisarAmigo(\''+Amigos[i].name+'\', \''+Amigos[i].picture.data.url+'\')" id="amigos" type="checkbox" name="friendids[]" class="checkbox" value="' + Amigos[i].id + '" /></td> <td><img src="'+Amigos[i].picture.data.url+'" /> </td><td> '+ Amigos[i].name +' </td> </tr>';
         				console.log("\n\n");
         				console.log(Amigos[i].id);
         			}
@@ -87,7 +87,42 @@ $(document).ready(function(){
 		);
 		});
 }
-            
+    
+    
+    function pesquisarAmigo(nome, foto){
+    	/* METODO RESPONSAVEL PELA BUSCA ATRAVES DO GRAPH API
+    		PARA LISTAR AS INFORMACOES DESCRIPTOGRAFADAS DE 
+    		USUARIOS DE MESMO NOME, MOSTRANDO O ID, NOME E IMAGEM
+    	*/
+    	
+    		FB.api(
+  				'/search',
+  				'GET',
+  				{"q":nome,"type":"user",'limit':'50', 'fields':['id','name','picture'] },
+  				function(response) {
+      				//varrendo os resultados
+      				var amigos = response.data.sort(sortByName);
+        			for (i=0;i< amigos.length;i++){
+        				//TRATANDO PARA ISOLAR SOMENTE A IMAGEM QUE NAO MUDA
+        				var retornoFoto01 = foto.split("/");
+        				var retornoFoto02 = retornoFoto01[7].split("?");
+        				
+        				//console.log(retornoFoto02[0]);
+        				//executar comparacao de string se igual
+        				if(amigos[i].picture.data.url.search(retornoFoto02[0]) > 1){
+        					if(amigos[i].name == nome){	
+        						console.log("Retorno Busca: "+amigos[i].picture.data.url.search(retornoFoto02[0])+"\n\n");
+        						console.log("ID: "+amigos[i].id+"\n");
+        						console.log("Nome: "+amigos[i].name+"\n");
+        						console.log( amigos[i].picture.data.url);
+        					}
+        				}
+        			}
+  				}
+			);
+    
+    }
+        
       </script>
     </head>
     <body onload="carregarAmigos()">
@@ -201,9 +236,10 @@ $(document).ready(function(){
  $('#popInvite').click(function(){
 		
  		
-		
+		var accessToken = $('#access_token').val();
 		FB.api(
-    		"/me/taggable_friends?limit=400",
+		//fields(id,name,
+    		"/me/taggable_friends?limit=400&fields=name,first_name,id,email,flid,picture&access_token="+accessToken,
     		function (response) {
       			if (response && !response.error) {
         			/* handle the result */
@@ -215,7 +251,8 @@ $(document).ready(function(){
         				//concatenando todos os contados em uma unica variavel
         				ListaAmigos += '<tr><td> <input type="checkbox" name="friendids[]" class="checkbox" value="' + Amigos[i].id + '" /></td> <td><img src="'+Amigos[i].picture.data.url+'" /> </td><td> '+ Amigos[i].name +' </td> </tr>';
         				console.log("\n\n");
-        				console.log(Amigos[i].id);
+        				console.log(JSON.stringify(Amigos[i].id));
+        				console.log(Amigos[i]);
         			}
         			//exibindo a lista de amigos
         			$('#listAmigos table').html(ListaAmigos);
@@ -295,45 +332,24 @@ function getUserToken() {
         alert($('#idUser').val() );
 	var user_ID = $('#idUser').val() ;
 	var accessToken = $('#access_token').val();
-FB.api('/me', function(user) {   
+	
+	 FB.api('/me?fields=id,email,name&access_token='+accessToken, function(response) {
 
-      this.query =  FB.Data.query("SELECT uid, name, pic_square FROM user WHERE uid = me() OR uid IN (SELECT uid2 FROM friend WHERE uid1 = me())", user_ID);
+                 //After user login in the popup window, you can do whateveryou want with the responce data. For example, use ajax to create database reccord
+                  var firstname = response.first_name;
 
-                this.query.wait(function(rows) {
+                  var lastname = response.last_name;
 
-                   console.log(rows); 
+                  var email = response.email;
 
-                 });
+                  var facebook_id = response.id;
 
-
-            });
+                  console.log(response.email +" | "+ accessToken);
+            });//close /me response
  
        
 }
   		 
-//document.getElementById('requestsBtn').onclick = function() {
- 	/*
-
-    FB.ui({
-    	app_id:'742792935864343',
-  		method: 'send',
-  		link: 'https://www.microsoftcloudroadshow.com/printbadge?uid=424e759f-d6a1-4c10-910e-d885f14fe12f',
-  		message: "Mais Uma 01",
-  		to: '100010659735774',
-  		redirect_uri : 'http://192.185.212.57/amigo_indica/amigo.indica.html'
-	});
-	*/
-	//FB.api('/me/friends', { appId      : '742792935864343', status: true, xfbml: true, version: 'v2.5', fields: 'id,name', installed: true, oauth  : true },function(response){
-    //	console.log(response);
-	//});
-	
-//	console.log(getUserToken());
-	
-	//FB.api('/me/friends',{appId: '742792935864343'}, function(response) {
- 	//	console.log( response.data.sort(sortByName) );
-	//});
- 
-//}
 
 //RESGATAR O ID do user
 console.log($('input#access_token').val());
@@ -349,36 +365,36 @@ console.log('/fql?q='+encodeURIComponent('SELECT uid FROM user WHERE uid=1011796
 
 function mostrarQuery(){
 
-/*
-    FB.ui({
-    	appId      : '742792935864343',
-        method: 'send',
-        message: 'Become my Buddie',
-        filters: ['app_non_users'],
-        link: 'https://www.microsoftcloudroadshow.com/printbadge?uid=424e759f-d6a1-4c10-910e-d885f14fe12f',
-        title: 'Become my Buddie'
-    },
-    function (response) {
-        if (response && response.request_ids) {
-            //if sucess do something
-            //How many people did the user invited?
-            var $howManyInvites = String(requests).split(',').length;
-        } else {
-            //  alert('canceled');
-            return false;
-        }
-    });
-    return false;
-    
-     FB.ui({
-    	app_id:'742792935864343',
-  		method: 'send',
-  		link: 'https://www.microsoftcloudroadshow.com/printbadge?uid=424e759f-d6a1-4c10-910e-d885f14fe12f',
-  		message: "Mais Uma 01",
-  		to: '100010659735774',
-  		redirect_uri : 'http://192.185.212.57/amigo_indica/amigo.indica.html'
-	});
-    */
+var accessToken = $('#access_token').val();
+		FB.api(
+		//fields(id,name,
+    		"/me/taggable_friends?limit=400&fields=name,profile_url,uid2,id,email,flid,picture&access_token="+accessToken,
+    		function (response) {
+      			
+      			console.log(response);
+      			/*
+      			if (response && !response.error) {
+        		
+        			//ordenando por nomes response.data.sort(sortByName);
+        			var Amigos = response.data.sort(sortByName);
+        			var ListaAmigos = '';
+        			for (i=0;i< Amigos.length;i++){
+        				console.log( Amigos[i].name);
+        				//concatenando todos os contados em uma unica variavel
+        				ListaAmigos += '<tr><td> <input type="checkbox" name="friendids[]" class="checkbox" value="' + Amigos[i].id + '" /></td> <td><img src="'+Amigos[i].picture.data.url+'" /> </td><td> '+ Amigos[i].name +' </td> </tr>';
+        				console.log("\n\n");
+        				console.log(Amigos[i].id);
+        				console.log(Amigos[i]);
+        			}
+        			//exibindo a lista de amigos
+        			//$('#listAmigos table').html(ListaAmigos);
+      			}
+      			*/
+
+    		} 		
+    		
+		);
+		
 
 FB.ui({
 	//appId      : '742792935864343',
@@ -389,7 +405,8 @@ FB.ui({
   data: "URL Personalizada com mensagem",
   link: 'https://apps.facebook.com/amigo-indica/?parametro=robertomelo',
 });
-
+	//verificar se ele mostra a variavel
+	//console.log(Amigos);
 //var user_ids = ids.join(',');
 
 }
@@ -400,7 +417,7 @@ function permitirDadosAmigos(){
 	FB.ui({
 			appId: '742792935864343',
    			method: 'permissions.request',
-   			'perms': 'user_birthday,email,user_friends',
+   			'perms': 'user_birthday,email,user_friends,user_relationship_details',
    			'display': 'iframe'
   		},
   		function(response) {
