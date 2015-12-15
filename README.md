@@ -4,4 +4,9 @@ Integração Javascritp API Facebook APP
 
 Validador de CPF C#: http://www.macoratti.net/11/09/c_val1.htm
 
-Hash SHA1: http://blog.virtualbase.com.br/2014/03/Criptografia2.html#.VnB6AuMrJgc
+Hash SHA1:
+  - http://www.jgarces.info/encriptar-sha1/
+  - https://adeshoras.wordpress.com/2008/06/23/generando-un-hash-sha1-con-aspnet-y-c-de-forma-sencilla-y-simple/
+  - 
+
+
