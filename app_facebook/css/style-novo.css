@@ -1,0 +1,108 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+
+
+
+@font-face {
+    font-family: 'Museo100';
+    src: url('../font/museo100-regular-webfont.eot');
+    src: url('../font/museo100-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../font/museo100-regular-webfont.woff') format('woff'),
+         url('../font/museo100-regular-webfont.ttf') format('truetype'),
+         url('../font/museo100-regular-webfont.svg#museo_100regular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'Museo300';
+    src: url('../font/museo300-regular-webfont.eot');
+    src: url('../font/museo300-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../font/museo300-regular-webfont.woff') format('woff'),
+         url('../font/museo300-regular-webfont.ttf') format('truetype'),
+         url('../font/museo300-regular-webfont.svg#museo_100regular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'Museo500';
+    src: url('../font/museo500-regular-webfont.eot');
+    src: url('../font/museo500-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../font/museo500-regular-webfont.woff') format('woff'),
+         url('../font/museo500-regular-webfont.ttf') format('truetype'),
+         url('../font/museo500-regular-webfont.svg#museo_100regular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'Museo700';
+    src: url('../font/museo700-regular-webfont.eot');
+    src: url('../font/museo700-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../font/museo700-regular-webfont.woff') format('woff'),
+         url('../font/museo700-regular-webfont.ttf') format('truetype'),
+         url('../font/museo700-regular-webfont.svg#museo_100regular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'Museo900';
+    src: url('../font/museo900-regular-webfont.eot');
+    src: url('../font/museo900-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../font/museo900-regular-webfont.woff') format('woff'),
+         url('../font/museo900-regular-webfont.ttf') format('truetype'),
+         url('../font/museo900-regular-webfont.svg#museo_100regular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+body { background: #fff; background-position: top; margin: 0; }
+
+
+#container {  margin: 0 auto; width: 986px; height: auto; color: #555555;  font-family: Museo500, Arial, Tahoma ; }
+
+/*header */
+
+#header { background: url(../img/novo/bg-top.png); width: 100%; height:126px; margin: 0 auto; }
+#header #wrapheader { width: 986px; height: 126px; margin: 0 auto; z-index: 8000; position: relative;}
+#wrapheader .logoaie { background: url(../img/novo/logo-aie.png); width: 271px; height: 96px; float: left; }
+
+#wrapheader .menu a{ width: auto; height:auto; padding: 20px 15px; font-family: Museo500, Arial, Tahoma ; font-size: 14px; color: #7c7c7c; border-left: 1px solid #e3e3e3;  line-height: 62px; float: left;  text-decoration: none; }
+#wrapheader .menu a:hover{ width: auto; height:auto; padding: 20px 15px; font-family: Museo500, Arial, Tahoma ; font-size: 14px; color: #7c7c7c; border-left: 1px solid #e3e3e3;  background: #f3f3f3; line-height: 62px; text-decoration: none;}
+
+#wrapheader .login a{ width: auto; height: auto; float: left; padding: 20px 30px; font-family: Museo500, Arial, Tahoma ; font-size: 14px; color: #fff;  background: #43bacf; line-height: 62px; text-decoration: none; }
+#wrapheader .login a:hover{ width: auto; height: auto; float: left; padding: 20px 30px; font-family: Museo500, Arial, Tahoma ; font-size: 14px; color: #fff;  background: #2fa7bc; line-height: 62px; text-decoration: none; }
+
+
+/* login */
+
+        #menu{ margin:0px; padding:0px; list-style:none; color:#fff; display:inline-block; float:left; z-index:1000; }
+        #menu a { color:#fff; text-decoration:none; }
+        #menu > li {background:#2fa7bc none repeat scroll 0 0; cursor:pointer; float:left; position:relative;padding:0px 10px; padding: 20px 30px; font-family: Museo500, Arial, Tahoma ; font-size: 14px; color: #fff;  background: #2fa7bc; line-height: 62px; text-decoration: none;}
+        #menu > li a:hover { padding: 20px 30px; font-family: Museo500, Arial, Tahoma ; font-size: 14px; color: #fff;  background: #2fa7bc; line-height: 62px; text-decoration: none; }
+        /* sub-menus*/
+        #menu ul { padding:0px; margin:0px; display:block; display:inline;}
+        #menu li ul { position:absolute; left:-10px; top:0px;  line-height:16px; background-color:#2fa7bc; color:#0395CC; /* for IE */ display:none; }
+        #menu li:hover ul { display:block;}
+        #menu li ul li{ display:block; margin:5px 20px; padding: 5px 0px;  border-top: dotted 1px #606060; list-style-type:none; }
+        #menu li ul li:first-child { border-top: none; }
+
+        /* main submenu */
+        #menu #main { margin-top: 102px; padding:20px; background-color:#2fa7bc; color:#fff; z-index:999; cursor:default; width: 280px; margin-left: -212px;}
+
+        #main .titulo { width: 280px; height: 20px; float: left; color: #9ed7e1; font-size: 14px; font-family: Museo700, Arial, Tahoma ;  }
+        #main .caixa01 { width: 230px; height: 25px; float: left; background: #fff; border: none; padding: 5px; font-family: Museo300, Arial, Tahoma ; color: #6d6d6d; }
+        #main .icon-user { background: url(../img/novo/icon-login.png); width: 33px; height: 35px; float: left; }
+        #main .caixa02 { width: 161px; height: 25px; float: left; background: #fff; border: none; padding: 5px; font-family: Museo300, Arial, Tahoma ; color: #6d6d6d; margin: 6px 0; }
+        #main .icon-cadeado { background: url(../img/novo/icon-cadeado.png); width: 33px; height: 35px; float: left;   margin: 6px 0; }
+        #main .btn-entrar { background: url(../img/novo/btn-entrar-login.png); width: 69px; height: 35px; float: left; margin: 6px 0;  }
+        #main .esqueci { width: 280px; height: 30px; margin: 20px 0; font-size: 11px; font-family: Museo300, Arial, Tahoma ; color: #fff; }

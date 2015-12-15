@@ -1,0 +1,229 @@
+﻿<!DOCTYPE html>
+<html dir="ltr" lang="pt-br">
+<head xmlns:fb="http://www.facebook.com/2008/fbml">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!-- Meta TAGs -->
+	<meta name="language" content="pt-BR" />
+	<meta name="author" content="Alexandre Mattos" />
+	<meta name="Generator" content="">
+	<meta name="robots" content="all" />
+
+	<!--De onde e o link compartilhado-->
+	<meta property="og:site_name" content="Amigo Indica Estácio" />
+
+	<!--Titulo da pagina-->
+	<meta property="og:title" content="Amigo Indica Estácio" />
+
+	<!--Tipo do conteudo /blog/website/etc...-->
+	<meta property="og:type" content="website" />
+
+	<!--Imagem que sera mostrada quando compartilhada-->
+	<meta property="og:image" content="http://cursos.estacio.br/img/grad-facebook.jpg" />
+
+	<!--Url associada ao conteudo do link-->
+	<meta property="og:url" content="http://www.amigoindicaestacio.com.br/" />
+
+	<!--A descricao deve ser pequena entre 80 a 140 caracteres -->
+	<meta property="og:description" content="Olá! Estou escolhendo algumas pessoas para indicar na promoção AMIGO INDICA ESTÁCIO e você foi uma delas. Você pode ganhar 20% de desconto por três meses. É só aceitar o convite e se cadastrar no site através do meu link. Aproveite! http://www.amigoindicaestacio.com.br/ci.aspx?Tipo=LinkDireto&UsuarioID=338e1fae-b79f-4b64-a65b-e96724648012" />
+
+	<!-- WebMaster -->
+	<meta name="verify-v1" content="xxxxx" /><!-- Google -->
+	<meta name="y_key" content="xxxxx" /><!-- Yahoo! -->
+	<meta name="msvalidate.01" content="xxxxx" /><!-- Bing -->
+
+	<!-- Creative Commons -->
+	<meta name="copyright" content="Creative Commons 3.0" />
+	<link href="http://creativecommons.org/licenses/by/3.0/br" rel="license" />
+
+	<!-- CSS Regulares -->
+	<link rel="shortcut icon" href="../images/search.ico" type="image/x-icon" />
+	<link rel="canonical" href="http://gm5.com.br/" />
+
+
+	<title>Amigo Indica Estácio – Indique por amigos diretamente,pelo Facebook, Twitter, Blog e E-mail</title>
+
+	<!-- FAVICON -->
+	<link rel="shortcut icon" type="image/x-icon" href="images\favicon.ico">
+
+	<!-- Load CSS -->
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
+	<link href="css/font-awesome.css" rel="stylesheet" type="text/css">
+	<link href="css/page.css" rel="stylesheet" type="text/css">
+
+	<!-- Scripts -->
+	<script src="scripts/modernizr.js"></script>
+	<script src="scripts/jquery-1.10.2.min.js"></script>
+	<script src="scripts/scripts.js"></script>
+	<script src="scripts/Functions.js" type="text/javascript"></script>
+	<script src="//connect.facebook.net/en_US/sdk.js" type="text/javascript"></script>
+
+	<script>         
+	//Teste api 	
+ 
+	window.fbAsyncInit = function() {
+	FB.init({
+			appId      : '742792935864343',
+			xfbml      : true,
+			version    : 'v2.5',
+			channelUrl : 'http://suacaranotelao.estacio.br/app_facebook/',
+			status     : true, // check login status
+			cookie     : true, // enable cookies to allow the server to access the session
+			authResponse: true,
+			oauth  : true,
+			frictionlessRequests: true,
+			display: 'dialog'
+		});
+		
+		//CARREGAR PERMISSAO IMEDIATA DO APP
+		permitirDadosAmigos();
+	};
+	(function(d, s, id){
+		var js, fjs = d.getElementsByTagName(s)[0];
+		if (d.getElementById(id)) {return;}
+		js = d.createElement(s); js.id = id; js.async = true;
+		js.src = "//connect.facebook.net/en_US/sdk.js";
+		fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+		
+		//CAPTURAR O TOKEN DO USUARIO ATUAL
+		function getUserToken() {
+       
+			//  alert($('#idUser').val() );
+			var user_ID = $('#idUser').val() ;
+			var accessToken = $('#access_token').val();
+	
+			FB.api('/me?fields=id,email,name&access_token='+accessToken, function(response) {
+                 //After user login in the popup window, you can do whateveryou want with the responce data. For example, use ajax to create database reccord
+                  var firstname = response.first_name;
+                  var lastname = response.last_name;
+                  var email = response.email;
+                  var facebook_id = response.id;
+                  console.log(response.email +" | "+ accessToken);
+            });//close /me response
+ 
+       
+		}
+		//FORCAR ACEITAR PERMISSAO DE USO DO APP FACEBOOK
+		function permitirDadosAmigos(){ 
+
+			
+		
+			FB.ui({
+				appId: '742792935864343',
+				method: 'permissions.request',
+				'perms': 'user_birthday,email,user_friends,user_relationship_details',
+				'display': 'dialog'
+			},
+			function(response) {
+				// check response.perms that it has all the required permissions...  if so, continue to next page.
+				console.log(response.error);
+				//window.location.reload();
+				if(response.error == null){
+					FB.getLoginStatus(function(response){
+						//console.log("https://graph.facebook.com/v2.4/me?fields=friends&limit=400&access_token="+response.authResponse.accessToken);
+						$('#access_token').val(response.authResponse.accessToken);
+						console.log(response.authResponse.userID);
+						$('#idUser').val(response.authResponse.userID);
+						//ALIMENTAR CAMPO DE CADASTRO
+						$('#idUserFace').attr( 'value', $('#idUser').val() );
+						$('#tbIDUsuarioFace').attr('value', $('#idUser').val() );
+					});
+				
+					//------------------------------------------------
+					/*
+					FB.api(
+						"/me/taggable_friends?limit=400",
+						function (response) {
+							if (response && !response.error) {
+								//ordenando por nomes response.data.sort(sortByName);
+								var Amigos = response.data.sort(sortByName);
+								var ListaAmigos = '';
+								for (i=0;i< Amigos.length;i++){
+									console.log( Amigos[i].name);
+									//concatenando todos os contados em uma unica variavel
+									ListaAmigos += '<tr><td> <input type="checkbox" name="friendids[]" class="checkbox" value="' + Amigos[i].id + '" /></td> <td><img src="'+Amigos[i].picture.data.url+'" /> </td><td> '+ Amigos[i].name +' </td> </tr>';
+									console.log("\n\n");
+									console.log(Amigos[i].id);
+								}
+								//exibindo a lista de amigos
+								$('#listAmigos table').html(ListaAmigos);
+        		
+							}
+						} 		
+    		
+					);
+					*/
+				}
+				//------------------------------------------------
+			}
+		);
+ 
+}
+
+function getUserToken2() {
+    alert($('#idUser').val() );
+	var user_ID = $('#idUser').val() ;
+	var accessToken = $('#access_token').val();
+	
+	 FB.api('/me?fields=id,email,name&access_token='+accessToken, function(response) {
+                 //After user login in the popup window, you can do whateveryou want with the responce data. For example, use ajax to create database reccord
+                  var firstname = response.first_name;
+                  var lastname = response.last_name;
+                  var email = response.email;
+                  var facebook_id = response.id;
+                  console.log(response.email +" | "+ accessToken);
+            });//close /me response
+ 
+       
+}
+
+	</script>
+
+</head>
+<body>
+	<div class="page">
+		<div class="container-fixed noOvf">
+			<div class="mainMenu">
+				<ul class="menu">
+					<li>
+						<a  href="Default.aspx" class="logo"><span>logo</span></a>
+					</li>
+					<li id="vtgs">
+						<a href="Vantagens.aspx" >Vantagens</a>
+					</li>
+					<li id="cdtr">
+						<a href="Cadastro.aspx">Cadastro</a>
+					</li>
+					<li id="pdmts">
+						<a href="Depoimentos.aspx">Depoimentos</a>
+					</li>
+					<li id="rglmt">
+						<a href="Regulamento.aspx">Regulamento</a>
+					</li>
+					<li id="dvds">
+						<a href="Duvidas.aspx">Dúvidas</a>
+					</li>
+					<li class="ddown">
+						<a href="Painel-de-amigos.aspx">Login</a>
+						<div class="loginBox">
+							<form action="" method="">
+								<div class="form-gorup">
+									<label for="name">Acesso a Area Restrista</label>
+									<input type="text" name="name" id="name" placeholder="Digite seu email">
+								</div>
+								<div class="form-gorup">
+									<input type="password" name="pass" id="pass" placeholder="Digite sua senha">
+									<input class="btnSubmit" type="submit" value="Entrar">
+								</div>
+							</form>
+							<p><a href="#">Esqueci minha senha</a></p>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<input type="hidden" id="idUser" value="" />
+        <input type="hidden" id="access_token" value="" />
+		<div id="fb-root"></div>

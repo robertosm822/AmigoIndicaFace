@@ -1,0 +1,666 @@
+﻿
+.home {width: 936px; overflow: hidden; margin-left: auto; margin-right: auto; padding-top: 16px; padding-bottom: 10px; font-family:Arial; }
+.home #bannerprincipal { width:936px; height:312px; float:left; }
+.home #pontilhado { width:936px; height:20px; float:left; font-size:14px; color:#d9d9d9; margin:8px 0 0 0; }
+.home #minibanner { width:306px; height:173px; float:left;   }
+.home #espaco { width:8px; height:173px; float:left; }
+
+.home #titulo { width:306px; height:36px; float:left; font-size:30px; color:#dbdbdb; }
+.home #img { width:306px; height:137px; float:left; }
+                   
+
+#vantagens { height:auto; font-size:12px; color:#7d888e;  font-family: Museo500, Arial, Tahoma ;   }
+#vantagens .titulo { height:auto; font-size:36px; color:#b0babf;  font-family: Museo900, Arial, Tahoma ; }
+#vantagens .subtitulo { height:auto;  font-size:14px; color:#b0babf;  font-family: Museo300, Arial, Tahoma ;   } 
+#vantagens .bg { background:url('../images/novo/bg-vantagens.png') no-repeat; height:80px;  margin-top:30px; }
+#vantagens .titindicador { height:18px; float:left; font-size:14px; color:#12b09c;  font-family: Museo900, Arial, Tahoma ; }
+#vantagens .titindicado {  height:18px; float:left; font-size:14px; color:#3d9ace;  font-family: Museo900, Arial, Tahoma ;  }
+#vantagens .coluna01 { }
+#vantagens .linha { width:1px; height:700px; background:#d9e2e8 ;}
+#vantagens .coluna02 {   }
+#vantagens .titindicaor02 { font-size:14px; color:#12b09c;  font-family: Museo700, Arial, Tahoma ;  }
+#vantagens .titindicao02 { font-size:14px; color:#3d9ace;  font-family: Museo700, Arial, Tahoma ;  }
+
+#depoimentos { }
+#depoimentos .fotodepo { width:104px; height:101px;  float:left;}
+#depoimentos .topdepo {  background: rgba(0, 0, 0, 0) url("../images/novo/bg-depoimento.png") no-repeat right top; padding-bottom:7px; }
+#depoimentos .txtdepo { height:auto; background:#ededed; padding:5px 20px 20px 20px; font-size: 12px; font-family: Museo300, Arial, Tahoma ; color: #868e97; float:right}
+a.btn-video { background: url('../images/novo/btn-assistaovideo.png') no-repeat; width: 104px; height:73px; float: left; text-decoration: none; display: block;border: none; }
+a.btn-video:hover { background-position: 0 -80px;  border: none; background-repeat:no-repeat}
+#depoimentos .nome { width:auto; height:auto; font-family: Museo700, Arial, Tahoma ; color: #8da6c0; float:left;  font-size:18px; margin-top:30px; margin-left:30px; }
+#depoimentos .unidade { width:auto; height:auto; font-family: Museo300, Arial, Tahoma ; color: #b0b7bd; float:left;  font-size:14px; margin-top:34px; margin-left:10px; }
+
+
+/* menu */
+
+.menu { width:936px; height:45px; overflow: hidden; margin-left: auto; margin-right: auto; padding-bottom: 10px; }
+.menu #home { width:71px; height:45px; float:left; }
+.menu #vantagens { width:145px; height:45px; float:left; }
+.menu #primeiroacesso { width:183px; height:45px; float:left; }
+.menu #depoimentos { width:155px; height:45px; float:left; }
+.menu #duvidas { width:120px; height:45px; float:left; }
+.menu #regulamento { width:163px; height:45px; float:left; }
+.menu #contato { width:99px; height:45px; float:left; }
+
+
+
+/*header */
+
+
+#divTopo {  height: auto; overflow:hidden}
+#divTopo .logoaie { background: url(../images/novo/logo-aie.png); width: 271px; height: 96px; float: left; }
+#divTopo .menunovo {border-left: 1px solid #e3e3e3; text-align:center; padding:41px 0 41px 0}
+#divTopo .menunovo a{  font-family: Museo500, Arial, Tahoma ; font-size: 14px; color: #7c7c7c; text-decoration: none; }
+#divTopo .menunovo:hover{  font-family: Museo500, Arial, Tahoma ; font-size: 14px; color: #7c7c7c; border-left: 1px solid #e3e3e3;  background: #f3f3f3; text-decoration: none;}
+.logoamigo {
+padding:35px 20px 0 0;
+}
+#divTopo .login a{ width: auto; height: auto; float: left;font-family: Museo300, Arial, Tahoma ; font-size: 11px; color: #fff;  text-decoration: none; }
+#divTopo .login a:hover{ width: auto; height: auto; float: left;  font-family: Museo300, Arial, Tahoma ; font-size: 11px; color: #fff;  text-decoration:underline; }
+
+
+.topoA { width: 986px; height: 142px;  }
+.topoA .logoaie { background: url(../images/novo/logo-aie.png); width: 271px; height: 96px; float: left; }
+.topoA .menunovo a{ width: auto; height:auto; padding: 20px 15px; font-family: Museo500, Arial, Tahoma ; font-size: 14px; color: #7c7c7c; border-left: 1px solid #e3e3e3;  line-height: 62px; float:right;  text-decoration: none; }
+.topoA .menunovo a:hover{ width: auto; height:auto; padding: 20px 15px; font-family: Museo500, Arial, Tahoma ; font-size: 14px; color: #7c7c7c; border-left: 1px solid #e3e3e3;  background: #f3f3f3; line-height: 62px; text-decoration: none;}
+.topoA .menunovo02 a{ width: auto; height:auto; padding: 33px 15px; font-family: Museo500, Arial, Tahoma ; font-size: 14px; color: #7c7c7c; border-left: 1px solid #e3e3e3;  line-height: 122px; float: right;  text-decoration: none; }
+.topoA .menunovo02 a:hover{ width: auto; height:auto; padding: 33px 15px; font-family: Museo500, Arial, Tahoma ; font-size: 14px; color: #7c7c7c; border-left: 1px solid #e3e3e3;  background: #f3f3f3; line-height: 122px; text-decoration: none;}
+
+
+/* login */
+
+        #menu{ margin:0px; padding:0px; list-style:none; color:#fff; display:inline-block; float:left; z-index:1000; }
+        #menu > li {background:#2fa7bc none repeat scroll 0 0; cursor:pointer; float:left;  padding:0px 10px; padding: 20px 30px; font-family: Museo500, Arial, Tahoma ; font-size: 14px; color: #fff;  background: #2fa7bc; line-height: 62px; text-decoration: none;}
+        /* sub-menus*/
+        #menu ul { padding:0px; margin:0px; display:block; display:inline;}
+        #menu li ul { position:absolute; top:0px;  line-height:16px; background-color:#2fa7bc; color:#0395CC; /* for IE */ display:none; }
+        #menu li:hover ul { display:block;}
+        #menu li ul li{ display:block; margin:5px 20px; padding: 5px 0px;  border-top: dotted 1px #606060; list-style-type:none; }
+        #menu li ul li:first-child { border-top: none; }
+
+        /* main submenu */
+        #menu #main { margin-top: 102px; padding:20px; background-color:#2fa7bc; color:#fff;  z-index:9999; cursor:default; width: 280px; margin-left: -213px;}
+		#menu #mainnew { margin-top: 102px; padding:20px; background-color:#2fa7bc; color:#fff;  z-index:9999; cursor:default; width: 280px; margin-left: -203px;}
+
+        #main .titulo { width: 280px; height: 20px;  float: left; color: #9ed7e1; font-size: 14px; font-family: Museo700, Arial, Tahoma ;  }
+        #main .caixa01 { width: 200px; height: 35px;  float: left; background: #fff; border: none; padding: 5px; font-family: Museo300, Arial, Tahoma ; color: #6d6d6d; }
+		#mainnew .caixa03 { width: 230px; height: 25px;  float: left; background: #fff; border: none; padding: 5px; font-family: Museo300, Arial, Tahoma ; color: #6d6d6d; }
+        #main .icon-user { background: url('../images/novo/icon-login.png'); width: 33px; height: 35px; float: left; }
+        #main .caixa02 { width: 131px; height: 35px; float: left; background: #fff; border: none; padding: 5px; font-family: Museo300, Arial, Tahoma ; color: #6d6d6d; margin: 6px 0; }
+		#mainnew .caixa04 { width: 161px; height: 25px; float: left; background: #fff; border: none; padding: 5px; font-family: Museo300, Arial, Tahoma ; color: #6d6d6d; margin: 6px 0; }
+        #main .icon-cadeado { background: url(../images/novo/icon-cadeado.png); width: 33px; height: 35px; float: left;   margin: 6px 0; }
+        #main .btn-entrar { background: url(../images/novo/btn-entrar-login.png); width: 69px; height: 35px; float: left; margin: 6px 0; z-index:9999; position:relative; }
+		
+		#mainnew .titulo { width: 280px; height: 20px;  float: left; color: #9ed7e1; font-size: 14px; font-family: Museo700, Arial, Tahoma ;  }
+		#mainnew .caixa03 { width: 230px; height: 25px;  float: left; background: #fff; border: none; padding: 5px; font-family: Museo300, Arial, Tahoma ; color: #6d6d6d; }
+		#mainnew .icon-user { background: url('../images/novo/icon-login.png'); width: 33px; height: 35px; float: left; }
+		#mainnew .caixa04 { width: 161px; height: 25px; float: left; background: #fff; border: none; padding: 5px; font-family: Museo300, Arial, Tahoma ; color: #6d6d6d; margin: 6px 0; }
+		#mainnew .icon-cadeado { background: url(../images/novo/icon-cadeado.png); width: 33px; height: 35px; float: left;   margin: 6px 0; }
+        #mainnew .btn-entrar { background: url(../images/novo/btn-entrar-login.png); width: 69px; height: 35px; float: left; margin: 6px 0; z-index:9999; position:relative; }
+        
+        .esqueci a{ width: 100px; height: 30px;  font-size: 11px; font-family: Museo300, Arial, Tahoma ; color: #fff; }
+        .esqueci a:hover { text-decoration:underline; width: 100px; height: 30px;  }
+
+#wraptop { width:100%; height:111px; margin:0 auto; }
+#icontop { margin: 20px 0; }
+#titulotop { text-align:left; font-family: Museo700, Arial, Tahoma ; font-size: 24px; color: #fff; margin:30px 0; }
+#topvantagens { background:url(../images/novo/top-contato.jpg); width:100%; height:111px; }
+#topcadastro { background:url(../images/novo/top-cadastro.jpg); width:100%; height:111px; }
+#topdepoimentos { background:url(../images/novo/top-depoimento.jpg); width:100%; height:111px; }
+#topregulamento { background:url(../images/novo/top-regulamento.jpg); width:100%; height:111px; }
+#topduvidas { background:url(../images/novo/top-duvidas.jpg); width:100%; height:111px; }
+#topcontato { background:url(../images/novo/top-vantagens.jpg); width:100%; height:111px; }
+
+
+.fb-send { background:url(../Images/novo/btn-compartilhar.png); width:200px; height:44px; }
+
+/* Primeiro acesso */
+
+.ContenudoCadastro .head { font-size:18px; color:#abbac4; font-family: Museo700, Arial, Tahoma ; }
+.ContenudoCadastro .caixanome { border:1px solid #bbccd5; padding:5px 8px; width:500px; }
+.ContenudoCadastro .erro {  background: rgba(0, 0, 0, 0) url("../images/novo/bg-erro-input.png") repeat scroll 0 0;
+    bottom: 26px;
+    color: #fff !important;
+    font-family: Museo300,Arial,Tahoma;
+    font-size: 11px;
+    left: 15px;
+    padding: 7px 15px 3px 12px;
+    position: absolute;
+    z-index:99;
+}
+                           
+.ContenudoCadastro .erro02 { font-family: Museo300,Arial,Tahoma;  font-size: 11px;  position: relative;    top: -17px;  left: 10px;}
+                           
+.ContenudoCadastro .erro03 { font-family: Museo300,Arial,Tahoma;  font-size: 11px;  position: relative;    top: -17px;  left: 10px;}
+
+.ContenudoCadastro .erro04 { font-family: Museo300,Arial,Tahoma;  font-size: 11px;  position: relative;    top: -17px;  left: 10px;}
+                           
+.ContenudoCadastro .erro05 { font-family: Museo300,Arial,Tahoma;  font-size: 11px;  position: relative;    top: -17px;  left: 10px;}
+                           
+.ContenudoCadastro .erro06 { font-family: Museo300,Arial,Tahoma;  font-size: 11px;  position: relative;    top: -17px; left: 10px; }
+                           
+.ContenudoCadastro .erro07 { font-family: Museo300,Arial,Tahoma;  font-size: 11px;  position: relative;    top: -17px; left: 10px; }
+                           
+.ContenudoCadastro .erro08 { font-family: Museo300,Arial,Tahoma;  font-size: 11px;  position: relative;    top: -17px;  left: 10px;}
+
+.ContenudoCadastro .box01 { width:195px; height:80px; float:left; }
+.ContenudoCadastro .box02 { width:400px; height:80px; float: right;   }
+
+.ContenudoCadastro .box03 { width:180px; height:85px; float:left; }   
+.ContenudoCadastro .box04 { width:180px; height:80px; float:left; margin-top:-95px; margin-left:197px;}     
+
+.ContenudoCadastro .box05 { width:190px; height:80px; float:left; }
+.ContenudoCadastro .box06 { width:190px; height:80px; float:left;  margin-left:-204px;  }
+.ContenudoCadastro .box07 { width:160px; height:80px; float:right; margin-top:-13px; margin-right:295px; margin-top:-90px\0/;  }    
+
+.ContenudoCadastro .box08 { width:300px; height:80px; float:left; }    
+.ContenudoCadastro .box09 { width:300px; height:80px; float:left; }    
+
+
+.ContenudoCadastro .erroemail {  font-family: Museo300,Arial,Tahoma;  font-size: 11px;  position: relative;    top: -17px; left: 10px;}
+      
+      
+.ContenudoCadastro .erroemail02 {font-family: Museo300,Arial,Tahoma;  font-size: 11px;  position: relative;    top: -17px;  left: 10px;}
+      
+.ContenudoCadastro .errocpf { font-family: Museo300,Arial,Tahoma;  font-size: 11px;  position: relative;    top: -17px;  left: 10px;}
+                           
+.ContenudoCadastro .erromatricula { font-family: Museo300,Arial,Tahoma;  font-size: 11px;  position: relative;    top: -17px;  left: 10px;}
+                           
+.ContenudoCadastro .errodata { font-family: Museo300,Arial,Tahoma;  font-size: 11px;  position: relative;    top: -17px;  left: 10px;}
+ 
+.ContenudoCadastro .errosenha { font-family: Museo300,Arial,Tahoma;  font-size: 11px;  position: relative;    top: -17px; left: 10px; }
+  
+.ContenudoCadastro .errosenha02 {font-family: Museo300,Arial,Tahoma;  font-size: 11px;  position: relative;    top: -17px;  left: 10px;}
+  
+  
+
+
+.ContenudoCadastro .btn { margin:9px 0 0 ;}
+
+.alteracoesucesso { background:url(../Images/novo/bg-sucesso.png); width:507px; height:49px; color:#333;
+                     font-family: Museo700, Arial, Tahoma ; font-size:16px; padding:15px 100px 15px 60px; margin-bottom:30px; } 
+                     
+.alteracoeserro { background:url(../Images/novo/bg-erro.png) #e35858 no-repeat; width:100%; height:auto; color:#333;
+                     font-family: Museo700, Arial, Tahoma ; font-size:12px; padding:16px 16px 16px 44px; margin: 20px 0 20px 0; text-align:center } 
+    
+    
+    
+    
+.corpo
+{
+    margin: 120px auto 0 auto;
+    width: 986px;
+}
+
+.corpo div
+{
+    float: left;
+}
+
+.corpo .chamada { width:100%; height:auto; color:#8598b2; font-family: Museo500, Arial, Tahoma ; font-size:18px; margin:0 0 20px 15px;}
+    
+
+#boxbannerprincipal { width:100%; height:509px;  }
+#linkboxbannerprincipal { width:100%; height:509px; background:transparent; cursor:pointer; }
+    
+#paineldecontrole { width:960px; height:auto; float:left;  margin:0 0 0 10px; } 
+#paineldecontrole .topdireto { background:#dfdfdf; color:#4b4b4b; font-family: Museo700, Arial, Tahoma ; font-size:13px; }
+#paineldecontrole .meiodireto { background:#efefef; color:#4b4b4b; font-family: Museo700, Arial, Tahoma ; font-size:13px; }    
+   
+#minipainel { width:435px; height:auto; float:left; margin:50px 0 0 10px;}
+#minipainel .topmini { background:#b4c2d5; width:435px; height:60px; color:#4b4b4b; font-family: Museo700, Arial, Tahoma ; font-size:14px; }
+#minipainel .topmini01 { background:#c9d6e5; width:435px; height:40px; color:#4b4b4b; font-family: Museo700, Arial, Tahoma ; font-size:13px; }    
+#minipainel .topmini02 { background:#dce5f0; width:435px; height:40px; color:#4b4b4b; font-family: Museo700, Arial, Tahoma ; font-size:13px; }        
+    
+#apoiopainel { width:480px; height:auto; float:left;  margin:50px 0 60px 10px; }
+#apoiopainel .txtapoio { width:460px; height:auto; float:left; margin:0 15px ; color:#818181; font-style:light; font-family: Museo500, Arial, Tahoma ; font-size:14px; }    
+    
+
+#apoiopainel .desconto { width:80px; height:auto; float:left; text-align:right; margin:60px 35px; color:#5288ce;  }
+#apoiopainel .divisa { background:url(../Images/novo/divisa-painel.png); width:47px; height:182px; float:left; margin:30px 0 0 20px; }
+#apoiopainel .btn { background:url(../Images/novo/btn-indicaramigos.png); width:230px; height:52px; float:left; margin:90px 0 0 10px; }
+
+#espaco { width:960px; height:30px; float:left; }
+
+
+
+.logoci { background:url(../Images/novo/logo-ci.png); width:415px; height:60px; float:left; margin:20px 0 0 10px;; }
+#imgci { width:100%; height:278px; background:url(../Images/novo/topo-ci.jpg); background-position:top; margin-top:-23px; position:relative; z-index:9;  }
+#imgci .conteudo { width:877px; height:278px;  margin:0 auto; }
+#imgci .caixabranca { width:877px; height:98px; float:left; background:url(../Images/novo/box-ci.png); margin-top:150px; color:#3d3d3d; }
+#imgci .txt01 { width:800px; height:30px; float:left; margin:20px 0 0 40px; font-size:26px; font-family: Museo900, Arial, Tahoma ; }
+#imgci .txt02 { width:800px; height:30px; float:left; margin:5px 0 0 40px; font-size:20px; font-family: Museo500, Arial, Tahoma ; }
+
+#imgci02 { width:100%; height:278px; background:url(../Images/novo/topo-ci02.jpg); background-position:top; margin-top:-23px; position:relative; z-index:9;  }
+#imgci02 .conteudo { width:877px; height:278px;  margin:0 auto; }
+#imgci02 .caixabranca { width:877px; height:98px; float:left; background:url(../Images/novo/box-ci.png); margin-top:150px; color:#3d3d3d; }
+#imgci02 .txt01 { width:800px; height:30px; float:left; margin:20px 0 0 40px; font-size:26px; font-family: Museo900, Arial, Tahoma ; }
+#imgci02 .txt02 { width:800px; height:30px; float:left; margin:5px 0 0 40px; font-size:20px; font-family: Museo500, Arial, Tahoma ; }
+
+#conteudoci { width:986px; height:auto; margin:0 auto;  }
+#conteudoci .erroacerto { width:900px; height:auto; margin:10px 0; }
+.nomeci { width:980px; height:20px; float:left; font-size:14px; color:#566875;  }
+.caixabox { border:1px solid #c7d5dc; padding:10px 8px; float:left;}
+#caixaci01{ width:980px; height:auto; float:left; margin:10px 10px 0 15px; font-family: Museo500, Arial, Tahoma ;  }
+#caixaci02 { width:304px; height:auto; float:left; margin:10px 10px 0 0; font-family: Museo500, Arial, Tahoma ;   }
+.caixa02ci { width:304px; height:20px; float:left;  margin:10px 10px 0 0;  font-family: Museo500, Arial, Tahoma ;font-size:14px; color:#566875;  }
+
+#caixaci02 .erro { width:256px; height:10px; float:left; background:url(../images/novo/bg-erro-input.png); 
+                           font-size:11px; padding:8px 6px; color:#fff; font-family: Museo300, Arial, Tahoma ; margin:-11px 0px 0 0px; }
+
+#regulamento { width:900px; height:auto;   margin-bottom:40px; background:#e1e1e1; float:left; padding:20px;}
+
+#regulamento .boxli { width:900px; height:60px; float:left; margin:30px  0;  color:#7b7b7b; font-size:13px; font-family: Museo300, Arial, Tahoma ;  }
+#regulamento .btnenviarcadastro { margin:20px 0; }
+#conteudoci .comentariosfinal { width:980px; height:60px; float:left; color:#7b7b7b; font-size:13px; font-family: Museo300, Arial, Tahoma ;}
+
+
+a.btnfacebook { 
+    background: url(../Images/novo/btn-facebook.png); 
+    width: 34px; 
+    height:35px; 
+    float: left; 
+    text-decoration: none; 
+    display: block;
+    border: none;
+
+}
+
+a.btnfacebook:hover { background-position: 0 -39px;  border: none;}
+
+a.btntwitter { 
+    background: url(../Images/novo/btn-twitter.png); 
+    width: 34px; 
+    height:35px; 
+    float: left; 
+    text-decoration: none; 
+    display: block;
+    border: none;
+    margin-left:1px;
+
+}
+
+a.btntwitter:hover { background-position: 0 -39px;  border: none;}
+
+a.btnyoutube { 
+    background: url(../Images/novo/btn-youtube.png); 
+    width: 34px; 
+    height:35px; 
+    float: left; 
+    text-decoration: none; 
+    display: block;
+    border: none;
+    margin-left:2px;
+
+}
+
+a.btnyoutube:hover { background-position: 0 -39px;  border: none;}
+
+a.btnlinkedin { 
+    background: url(../Images/novo/btn-linkedin.png); 
+    width: 34px; 
+    height:35px; 
+    float: left; 
+    text-decoration: none; 
+    display: block;
+    border: none;
+    margin-left:2px;
+
+}
+
+a.btnlinkedin:hover { background-position: 0 -39px;  border: none;}
+
+
+
+/* Banner SIA */
+
+.corposia
+{
+
+    width: 704px;
+    height:362px;
+}
+
+.corposia div
+{
+    float: left;
+}
+
+.cabeza_Asia
+{
+    height: 50px;
+    overflow: hidden;
+}
+
+.abassia
+{
+    width: 704px;
+    background-image: url('../images/fundoAbas.jpg');
+    background-repeat: repeat-x;
+    color: #034167;
+    background-color: #edeef3;
+}
+.abas_leftsia
+{
+    width: 230px;
+}
+.abas_left_blocksia
+{
+    width: 170px;
+    height: 79px;
+    background-color: #E1E319;
+    margin-left: 30px;
+    margin-right: 30px;
+}
+.abas_left_blocksia div
+{
+    padding: 10px;
+    font-size: 19px;
+}
+
+#tabsEsia
+{
+    float: left;
+    width: 704px;
+    font-size: 15px;
+    line-height: normal;
+    text-align: left;
+}
+#tabsEsia ul
+{
+    margin: 0;
+    padding: 0px 0px 0px 0px;
+    list-style: none;
+}
+#tabsEsia li
+{
+    display: inline;
+    margin: 0;
+    padding: 0;
+}
+#tabsEsia a
+{
+    float: left;
+    margin: 0;
+    padding: 0 0 0 5px;
+    text-decoration: none;
+}
+#tabsEsia a span
+{
+    float: left;
+    display: block;
+    height: 30px;
+    width: 130px;
+    padding: 10px 0px 0px 0px;
+    background: url('../images/fundoAbaDashboard.jpg');
+    background-repeat: repeat-x;
+    text-align: center;
+    color: #034168;
+    font-family: Arial;
+    font-size: 12px;
+    cursor: hand;
+}
+
+#tabsEsia a:hover span
+{
+    color: #FFFFFF;
+    font-family: Arial;
+    font-size: 12px;
+    background: url('../images/fundoAbaDashboardHover.jpg');
+    background-repeat: repeat-x;
+    cursor: hand;
+}
+
+#aba1_Dashboardsia
+{
+    width: 220px !important;
+}
+
+#aba1_Asia
+{
+    width: 80px !important;
+}
+
+#aba2_Asia
+{
+    width: 110px !important;
+}
+
+#aba3_Asia
+{
+    width: 68px !important;
+}
+
+#aba4_Asia
+{
+    width: 80px !important;
+}
+
+#aba5_Asia
+{
+    width: 120px !important;
+}
+
+#aba6_Asia
+{
+    width: 94px !important;
+}
+
+#aba7_Asia
+{
+    width: 110px !important;
+}
+
+.abaNaoSelecionadasia
+{
+    color: #034168 !important;
+    background: url('../images/fundoAbaDashboard.jpg') !important;
+    background-repeat: repeat-x !important;
+}
+
+.abaNaoSelecionadasia:hover
+{
+    color: #FFFFFF !important;
+    background: url('../images/fundoAbaDashboardHover.jpg') !important;
+    background-repeat: repeat-x !important;
+}
+
+.abaSelecionadasia
+{
+    color: #FFFFFF !important;
+    background: url('../images/fundoAbaDashboardHover.jpg') !important;
+    background-repeat: repeat-x !important;
+}
+
+.abas_contenidossia
+{
+    width: 700px;
+    padding-left: 4px;
+}
+
+.fonteTituloDashboardsia
+{
+    color: #034168;
+    font-family: Arial;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.fonteTextoDashboardsia
+{
+    color: #034168;
+    font-family: Arial;
+    font-size: 12px;
+}
+
+.fonteLinkDashboardsia
+{
+    color: #034168;
+    font-family: Arial;
+    font-size: 24px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.fonteLinkDashboardsia:hover
+{
+    text-decoration: underline;
+}
+
+.fonteLinkIndicarsia
+{
+    font-family: Arial;
+    font-size: 24px;
+    color: #034168;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.fonteLinkIndicarsia:hover
+{
+    text-decoration: underline;
+}
+
+.fonteLinkPublicarsia
+{
+    font-family: Arial;
+    font-size: 24px;
+    color: #FFFFFF;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.fonteLinkPublicarsia:hover
+{
+    text-decoration: underline;
+}
+ .navbar { display:none}
+
+.barraboxex {
+ margin-top:-50px;
+}
+
+@media screen and (max-width: 1000px) {
+    .navbar {
+        display: block;
+    }
+
+    #divTopo {
+        display: none;
+    }
+
+    .navbar-default {
+        background: none;
+        border: none;
+        padding: 10px;
+    }
+
+    #fundoTopo {
+        background: none;
+    }
+
+    #titulotop {
+    }
+
+    .titulo {
+        font-size: 25px !important;
+    }
+
+    #vantagens .bg {
+        background: none;
+        height: 38px;
+    }
+
+    #vantagens .coluna01 {
+        margin-bottom: 100px;
+    }
+
+    #vantagens .coluna02 {
+        margin-bottom:100px;
+    }
+    #depoimentos .topdepo {   background-color:#EDEDED}
+
+    .barraboxex { margin-top:50px
+    }
+
+    .fonteNumero {
+        font-size: 23px;
+    }
+    .fonteNumero2 {
+        font-size: 12px;
+    }
+    .corpo {
+        margin: 38px auto 0;
+        width:100%;
+    }
+   .corpo .chamada {
+        margin:0; padding:15px;
+        }
+    .abas {
+        margin:0; padding:20px
+    }
+    #tabsE ul {
+    display: block;
+    list-style: outside none none;
+    margin: 0 auto;
+    padding: 0;
+    text-align: center;
+    width: 190px;
+}
+    .abas_contenidos {
+        padding:0;
+    }
+    .fonteTextoDashboard {
+        margin:0;
+    }
+    #tableBotaoIndicar {
+    color: #fff;
+    display: block;
+    float: right;
+    font-family: Museo700,Arial,Tahoma;
+    font-size: 16px;
+    height: 55px;
+    margin: 17px auto;
+    text-align: center;
+    width: 150px;
+}
+    #frase1 {
+    margin:0 0 30px 0
+    }
+     #frase2 {
+    margin:0 0 30px 0
+    }
+     .fonteRespostaFAQ{font-size: 10px;}
+    #menu { position:absolute; width: 100%; left:0;}
+    #menu #main {
+    background-color: #2fa7bc;
+    color: #fff;
+    cursor: default;
+    width: 100%;
+    z-index: 9999;
+    margin-left: -30px;
+    margin-top: 0;
+    height: 368px;
+}
+
+    #main .titulo {
+    color: #9ed7e1;
+    float: left;
+    font-family: Museo700,Arial,Tahoma;
+    font-size: 14px;
+    height: auto;
+    line-height: 25px;
+    width: 100%;
+    margin: 0 0 20px 0;
+}
+   .flogaluno {
+    bottom: 0;
+    color: #000;
+    font-weight: bold;
+    left: 0;
+    padding: 21px;
+    position: absolute;
+    width: 100%;
+}
+   .navbar-default{ background:none}
+}

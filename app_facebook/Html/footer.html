@@ -1,0 +1,61 @@
+﻿	<div class="container-fixed">
+			<div class="footer">
+				<a href="#" class="logoFooter">
+					<span>Estácio, amigo indica Estácio</span>
+				</a>
+				<div class="socialIcons">
+					<ul>
+						<li>
+							<a href="#" class="facebook"><i class="fa fa-facebook-official"></i></a>
+						</li>
+						<li>
+							<a href="#" class="twitter"><i class="fa fa-twitter-square"></i></a>
+						</li>
+						<li>
+							<a href="#" class="youtube"><i class="fa fa-youtube-square"></i></a>
+						</li>
+						<li>
+							<a href="#" class="linkedin"><i class="fa fa-linkedin-square"></i></a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+<script>
+    
+    //RECONHECENDO QUAL A URL PASSADA PARA ATIVAR CSS DO MENU ATIVO
+    var url = window.location.href.toString().split(window.location.host)[1];
+    console.log(url);
+    if (url == "/app_facebook/Vantagens") {
+        $('ul.menu li#vtgs').attr("class", "active");
+    }
+    if (url == "/app_facebook/Cadastro") {
+        $('ul.menu li#cdtr').attr("class", "active");
+    }
+    if (url == "/app_facebook/Depoimentos") {
+        $('ul.menu li#pdmts').attr("class", "active");
+    }
+    if (url == "/app_facebook/Regulamento") {
+        $('ul.menu li#rglmt').attr("class", "active");
+    }
+    if (url == "/app_facebook/Depoimentos") {
+        $('ul.menu li#pdmts').attr("class", "active");
+    }
+    if (url == "/app_facebook/Duvidas") {
+        $('ul.menu li#dvds').attr("class", "active");
+    }
+	$('select').on('change',function(){
+			var valueSelecionado = $(this).val();
+			console.log(valueSelecionado);
+			if(valueSelecionado == '0'){	
+				$('#blMatricula').show();
+			} else {
+				$('#blMatricula').hide();
+			}
+	});
+
+</script>
+</body>
+</html>

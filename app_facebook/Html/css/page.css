@@ -1,0 +1,874 @@
+@charset "utf-8";
+/* CSS Document
+*
+* 	Estácio
+* 	28/10/2013
+*	  Author: Alexandre Mattos
+*
+*/
+
+* {
+  margin: 0;
+  padding: 0;
+  outline: none;
+  list-style: none;
+}
+.clear {
+  clear: both;
+}
+
+@font-face {
+  font-family: 'Museo';
+  src: url('../fonts/Museo500-Regular.eot');
+  src: local('#'), url('../fonts/Museo500-Regular.woff') format('woff'), url('../fonts/Museo500-Regular.ttf') format('truetype'), url('../fonts/Museo500-Regular.svg') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'MuseoBold';
+  src: url('../fonts/Museo900.eot');
+  src: local('#'), url('../fonts/Museo900.woff') format('woff'), url('../fonts/Museo900.ttf') format('truetype'), url('../fonts/Museo900.svg') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.container-fixed {
+  width: 800px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+.mainMenu {
+  float: left;
+  background: #ffffff;
+}
+.mainMenu ul.menu {
+  list-style: none;
+  float: left;
+}
+.mainMenu ul.menu li {
+  float: left;
+  border-left: 1px solid #ebebeb;
+  position: relative;
+}
+.mainMenu ul.menu li:first-child {
+  border: none;
+}
+.mainMenu ul.menu li > a {
+  display: block;
+  padding: 32px 2px;
+  min-width: 81px;
+}
+.mainMenu ul.menu li > a:link,
+.mainMenu ul.menu li > a:visited {
+  -moz-transition: all 0.5s ease-in-out;
+  -webkit-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+  background: #ffffff;
+  font-family: 'Museo', sans-serif;
+  line-height: 12px;
+  font-weight: normal;
+  font-size: 12px;
+  color: #7c7c7c;
+  text-decoration: none;
+  text-align: center;
+}
+.mainMenu ul.menu li > a:hover {
+  background: #2fa7bc;
+  color: #ffffff;
+}
+.mainMenu ul.menu li > a.logo:link,
+.mainMenu ul.menu li > a.logo:visited {
+  background: url("../images/logo-aie.png") center center no-repeat;
+  width: 280px;
+  height: 28px;
+  padding: 24px 2px;
+}
+.mainMenu ul.menu li > a.logo:link span,
+.mainMenu ul.menu li > a.logo:visited span {
+  display: none;
+}
+.mainMenu ul.menu li.active a:link,
+.mainMenu ul.menu li.active a:visited {
+  background: #2fa7bc;
+  color: #ffffff;
+}
+.mainMenu ul.menu li.ddown:hover .loginBox {
+  display: block;
+}
+.mainMenu ul.menu li.ddown:hover > a {
+  background: #2fa7bc;
+  color: #ffffff;
+}
+/*
+	Footer
+*/
+.footer {
+  background: url("../images/bg-footer.jpg") top left repeat;
+  display: block;
+  height: 60px;
+  border-bottom: 2px solid #9C9E9E;
+}
+.footer a.logoFooter:link,
+.footer a.logoFooter:visited {
+  background: url("../images/logo-footer.png") center center no-repeat;
+  width: 308px;
+  height: 40px;
+  display: block;
+  float: left;
+  margin: 10px 0 10px 25px;
+}
+.footer a.logoFooter span {
+  display: none;
+}
+/*
+	Banner
+*/
+.banner a {
+  display: block;
+}
+.banner a img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+/*
+	Redes Sociais
+*/
+.socialIcons {
+  float: right;
+}
+.socialIcons ul {
+  float: left;
+  padding: 0 12px;
+}
+.socialIcons ul li {
+  float: left;
+  padding: 30px 12px 0 12px;
+}
+.socialIcons ul li a:link,
+.socialIcons ul li a:visited {
+  font-size: 24px;
+}
+.socialIcons ul li a:link.facebook,
+.socialIcons ul li a:visited.facebook {
+  color: #3756AA;
+}
+.socialIcons ul li a:link.twitter,
+.socialIcons ul li a:visited.twitter {
+  color: #58C0FD;
+}
+.socialIcons ul li a:link.youtube,
+.socialIcons ul li a:visited.youtube {
+  color: #C34129;
+}
+.socialIcons ul li a:link.linkedin,
+.socialIcons ul li a:visited.linkedin {
+  color: #4076BC;
+}
+/*
+	Nome da Página
+*/
+.pageName img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+/*
+	Home
+*/
+.homePage {
+  background: url("../images/bg-home.jpg") top left no-repeat;
+  min-height: 1022px;
+  padding: 25px 0 0 0;
+  overflow: hidden;
+}
+.homePage .item {
+  height: 130px;
+  overflow: hidden;
+}
+.homePage .item h2 {
+  font-family: 'Museo', sans-serif;
+  line-height: 24px;
+  font-weight: normal;
+  font-size: 24px;
+  color: #7c7c7c;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin: 0 0 20px 0;
+}
+.homePage .item p {
+  font-family: 'Museo', sans-serif;
+  line-height: 12px;
+  font-weight: normal;
+  font-size: 12px;
+  color: #7c7c7c;
+}
+.homePage .item.item1 {
+  margin: 40px 0;
+  padding: 0 315px 0 180px;
+}
+.homePage .item.item1 h2 {
+  color: #3ebbd3;
+}
+.homePage .item.item2 {
+  margin: 65px 0;
+  padding: 0 30px 0 480px;
+}
+.homePage .item.item2 h2 {
+  color: #bd95d6;
+}
+.homePage .item.item3 {
+  margin: 40px 0;
+  padding: 0 315px 0 180px;
+}
+.homePage .item.item3 h2 {
+  color: #547fcf;
+}
+.homePage .item.item4 {
+  margin: 53px 0;
+  padding: 0 30px 0 480px;
+}
+.homePage .item.item4 h2 {
+  color: #f4c56a;
+}
+.homePage .item.item5 {
+  margin: 62px 0;
+  padding: 0 315px 0 180px;
+}
+.homePage .item.item5 h2 {
+  color: #35d68a;
+}
+/*
+	Box de cadastro
+*/
+.boxCadastro {
+  background: #F6F6F6;
+  display: block;
+  padding: 40px 0;
+}
+.boxCadastro a.btnCadastro:link,
+.boxCadastro a.btnCadastro:visited {
+  display: block;
+  width: 250px;
+  font-family: 'Museo', sans-serif;
+  line-height: 24px;
+  font-weight: normal;
+  font-size: 24px;
+  color: #ffffff;
+  background: #00bccf url("../images/btnSubmit.png") 10px center no-repeat;
+  text-transform: uppercase;
+  padding: 17px 20px 17px 40px;
+  text-decoration: none;
+  margin: 0 auto;
+}
+.boxCadastro p {
+  font-family: 'Museo', sans-serif;
+  line-height: 14px;
+  font-weight: normal;
+  font-size: 14px;
+  color: #7c7c7c;
+  line-height: 22px;
+  padding: 0 150px 20px 150px;
+  text-align: center;
+}
+/*
+	Página de vantagens
+*/
+.vantagensPage {
+  background: #ffffff;
+}
+.vantagensPage h2 {
+  padding: 50px 30px 0 30px;
+  font-family: 'MuseoBold', sans-serif;
+  line-height: 30px;
+  font-weight: normal;
+  font-size: 30px;
+  color: #afbac2;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+.vantagensPage p {
+  padding: 0 30px;
+  font-family: 'Museo', sans-serif;
+  line-height: 14px;
+  font-weight: normal;
+  font-size: 14px;
+  color: #afbac2;
+  margin: 10px 0 20px 0;
+}
+.vantagensPage .boxIndicador {
+  background: url("../images/bg-vantagens.png") center top no-repeat;
+  overflow: hidden;
+}
+.vantagensPage .boxIndicador .halfBox {
+  width: 340px;
+  padding: 0 30px;
+  float: left;
+}
+.vantagensPage .boxIndicador .halfBox h3 {
+  font-family: 'MuseoBold', sans-serif;
+  line-height: 14px;
+  font-weight: normal;
+  font-size: 14px;
+  color: #afbac2;
+  text-transform: uppercase;
+  margin: 0 0 75px 0;
+}
+.vantagensPage .boxIndicador .halfBox h5 {
+  margin: 0 0 20px 0;
+  font-family: 'Museo', sans-serif;
+  line-height: 12px;
+  font-weight: normal;
+  font-size: 12px;
+  color: #afbac2;
+  font-weight: bold;
+}
+.vantagensPage .boxIndicador .halfBox p {
+  padding: 0;
+  margin: 0 0 20px 0;
+  font-family: 'Museo', sans-serif;
+  line-height: 12px;
+  font-weight: normal;
+  font-size: 12px;
+  color: #afbac2;
+}
+.vantagensPage .boxIndicador .halfBox.verde h3,
+.vantagensPage .boxIndicador .halfBox.verde h5 {
+  color: #01ad9e;
+}
+.vantagensPage .boxIndicador .halfBox.verde a:link,
+.vantagensPage .boxIndicador .halfBox.verde a:visited {
+  color: #01ad9e;
+}
+.vantagensPage .boxIndicador .halfBox.azul h3,
+.vantagensPage .boxIndicador .halfBox.azul h5 {
+  color: #499acf;
+}
+.vantagensPage .boxIndicador .halfBox.azul a:link,
+.vantagensPage .boxIndicador .halfBox.azul a:visited {
+  color: #499acf;
+}
+/*
+	Cadastro
+*/
+.formularios {
+  padding: 45px 15px;
+  background: #ffffff;
+  overflow: hidden;
+}
+.formularios h2 {
+  padding: 0 15px 40px 15px;
+  font-family: 'Museo', sans-serif;
+  line-height: 18px;
+  font-weight: normal;
+  font-size: 18px;
+  color: #afbac2;
+  font-weight: bold;
+}
+.formularios .fullSize {
+  padding: 15px;
+  width: 740px;
+}
+.formularios .fullSize input[type="text"],
+.formularios .fullSize input[type="password"],
+.formularios .fullSize select {
+  width: 718px;
+}
+.formularios .halfSize {
+  padding: 15px;
+  width: 355px;
+  float: left;
+}
+.formularios .halfSize input[type="text"],
+.formularios .halfSize input[type="password"],
+.formularios .halfSize select {
+  width: 333px;
+}
+.formularios .oneThird {
+  width: 226.5px;
+  padding: 15px;
+  float: left;
+}
+.formularios .oneThird input[type="text"],
+.formularios .oneThird input[type="password"] {
+  width: 204.5px;
+}
+.formularios .form-group {
+  margin: 0 0 50px 0;
+  position: relative;
+}
+.formularios .form-group p.example {
+  font-family: 'Museo', sans-serif;
+  line-height: 12px;
+  font-weight: normal;
+  font-size: 12px;
+  color: #8d8d8d;
+  position: absolute;
+  bottom: -20px;
+  left: 0;
+}
+.formularios .form-group p.msgErro {
+  font-family: 'Museo', sans-serif;
+  line-height: 12px;
+  font-weight: normal;
+  font-size: 12px;
+  color: #ffffff;
+  position: absolute;
+  bottom: -20px;
+  left: 0;
+  background: #D88A8A;
+  padding: 4px;
+}
+.formularios .form-group.erro input[type="text"],
+.formularios .form-group.erro input[type="password"],
+.formularios .form-group.erro select {
+  border-color: #D88A8A;
+}
+.formularios .btnSubmit {
+  display: block;
+  font-family: 'MuseoBold', sans-serif;
+  line-height: 20px;
+  font-weight: normal;
+  font-size: 20px;
+  color: #ffffff;
+  background: #00bccf url("../images/btnSubmit.png") 10px center no-repeat;
+  text-transform: uppercase;
+  padding: 12px 20px 8px 50px;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  margin: 74px 0 0 0;
+}
+/*
+	Campos de formulário
+*/
+input[type="text"],
+input[type="password"] {
+  border: 1px solid #b1ced5;
+  font-family: 'Museo', sans-serif;
+  line-height: 12px;
+  font-weight: normal;
+  font-size: 12px;
+  color: #afbac2;
+  font-weight: lighter;
+  padding: 10px;
+}
+select {
+  border: 1px solid #b1ced5;
+  font-family: 'Museo', sans-serif;
+  line-height: 12px;
+  font-weight: normal;
+  font-size: 12px;
+  color: #afbac2;
+  font-weight: lighter;
+  padding: 9px 10px;
+  width: 100%;
+}
+label {
+  display: block;
+  font-family: 'Museo', sans-serif;
+  line-height: 12px;
+  font-weight: normal;
+  font-size: 12px;
+  color: #566875;
+  margin: 0 0 5px 0;
+}
+/*
+	Regulamento
+*/
+.regulamento {
+  background: #ffffff;
+  overflow: hidden;
+  padding: 0 30px 40px 30px;
+}
+.regulamento h5 {
+  font-family: 'MuseoBold', sans-serif;
+  line-height: 14px;
+  font-weight: normal;
+  font-size: 14px;
+  color: #5d5d5d;
+  text-transform: uppercase;
+  margin: 40px 0 10px 0;
+}
+.regulamento h3 {
+  font-family: 'MuseoBold', sans-serif;
+  line-height: 16px;
+  font-weight: normal;
+  font-size: 16px;
+  color: #5d5d5d;
+  text-align: center;
+}
+.regulamento p {
+  font-family: 'Museo', sans-serif;
+  line-height: 12px;
+  font-weight: normal;
+  font-size: 12px;
+  color: #5d5d5d;
+  margin-bottom: 15px;
+  line-height: 16px;
+}
+.regulamento p span {
+  font-family: 'MuseoBold', sans-serif;
+  line-height: 12px;
+  font-weight: normal;
+  font-size: 12px;
+  color: #5d5d5d;
+}
+.regulamento p.date {
+  text-align: center;
+}
+.regulamento p a:link,
+.regulamento p a:visited {
+  font-family: 'MuseoBold', sans-serif;
+  line-height: 12px;
+  font-weight: normal;
+  font-size: 12px;
+  color: #499acf;
+}
+.regulamento .boxExemplo {
+  border: 1px solid #5d5d5d;
+  padding: 10px;
+  text-align: center;
+  margin: 0 0 20px 0;
+}
+.regulamento .boxExemplo p {
+  font-family: 'MuseoBold', sans-serif;
+  line-height: 12px;
+  font-weight: normal;
+  font-size: 12px;
+  color: #5d5d5d;
+  margin: 10px 0;
+}
+/*
+	Dúvidas
+*/
+.duvidas {
+  background: #ffffff;
+  overflow: hidden;
+  padding: 0 30px 40px 30px;
+}
+.duvidas h2 {
+  font-family: 'Museo', sans-serif;
+  line-height: 18px;
+  font-weight: normal;
+  font-size: 18px;
+  color: #abbac4;
+  font-weight: bold;
+  margin: 40px 0 30px 0;
+}
+.duvidas h2 a {
+  color: #002f50;
+  text-transform: uppercase;
+  font-size: 14px;
+}
+.duvidas ul li {
+  margin-bottom: 20px;
+}
+.duvidas ul li a {
+  margin-bottom: 1px;
+}
+.duvidas ul li a:link,
+.duvidas ul li a:visited {
+  font-family: 'Museo', sans-serif;
+  line-height: 12px;
+  font-weight: normal;
+  font-size: 12px;
+  color: #5c6e81;
+  display: block;
+  padding: 20px 10px;
+  background: #cdd4dc;
+  text-decoration: none;
+  line-height: 16px;
+}
+.duvidas ul li a:hover,
+.duvidas ul li a.active {
+  color: #002f50;
+}
+.duvidas ul li .container {
+  display: none;
+  background: url("../images/bg-resposta-faq.jpg") top left no-repeat;
+  padding: 20px 0 0 35px;
+}
+.duvidas ul li .container p {
+  font-family: 'Museo', sans-serif;
+  line-height: 12px;
+  font-weight: normal;
+  font-size: 12px;
+  color: #5c6e81;
+  line-height: 18px;
+  display: block;
+  background: #e3e8ed;
+  padding: 10px;
+}
+/*
+	Depoimentos
+*/
+.depoimentos {
+  background: #ffffff;
+  overflow: hidden;
+  padding: 40px 30px;
+}
+.depoimentos .depoimento .imageAndLink {
+  float: left;
+  width: 105px;
+}
+.depoimentos .depoimento .imageAndLink a.video:link,
+.depoimentos .depoimento .imageAndLink a.video:visited {
+  background: url('../images/btn-assistaovideo.png') top left no-repeat;
+  width: 104px;
+  height: 73px;
+  float: left;
+  text-decoration: none;
+  display: block;
+}
+.depoimentos .depoimento .imageAndLink a.video:hover {
+  background: url('../images/btn-assistaovideo.png') bottom left no-repeat;
+}
+.depoimentos .depoimento .imageAndLink a span {
+  display: none;
+}
+.depoimentos .depoimento .container {
+  width: 635px;
+  float: left;
+}
+.depoimentos .depoimento .container .title {
+  background: url("../images/bg-depoimento.png") top left no-repeat;
+  height: 71px;
+}
+.depoimentos .depoimento .container .title h3 {
+  font-family: 'Museo', sans-serif;
+  line-height: 18px;
+  font-weight: normal;
+  font-size: 18px;
+  color: #8da6c0;
+  font-weight: bold;
+  padding: 42px 10px 0 26px;
+}
+.depoimentos .depoimento .container .title h3 span {
+  font-family: 'Museo', sans-serif;
+  line-height: 14px;
+  font-weight: normal;
+  font-size: 14px;
+  color: #b0b7bd;
+  font-weight: lighter;
+}
+.depoimentos .depoimento .container .content {
+  margin: 0 0 0 10px;
+  background: #ededed;
+  padding: 20px;
+}
+.depoimentos .depoimento .container .content p {
+  font-family: 'Museo', sans-serif;
+  line-height: 12px;
+  font-weight: normal;
+  font-size: 12px;
+  color: #5c6e81;
+  line-height: 16px;
+  margin-bottom: 20px;
+}
+/*
+	Painel de amigos
+*/
+.panel {
+  padding: 45px 15px;
+  background: #ffffff;
+  overflow: hidden;
+}
+.panel h2 {
+  font-family: 'Museo', sans-serif;
+  line-height: 18px;
+  font-weight: normal;
+  font-size: 18px;
+  color: #afbac2;
+  font-weight: bold;
+  padding: 30px 15px 30px 15px;
+}
+.panel .halfSize {
+  padding: 0 15px;
+  width: 355px;
+  float: left;
+}
+.panel .boxEstats {
+  background: #f4f4f4;
+  text-align: center;
+  padding: 50px;
+  margin-bottom: 30px;
+}
+.panel .boxEstats h4 {
+  font-family: 'Museo', sans-serif;
+  line-height: 24px;
+  font-weight: normal;
+  font-size: 24px;
+  color: #afbabe;
+  text-transform: uppercase;
+  font-weight: lighter;
+}
+.panel .boxEstats h4 strong {
+  font-family: 'MuseoBold', sans-serif;
+  line-height: 24px;
+  font-weight: normal;
+  font-size: 24px;
+  color: #afbabe;
+}
+.panel .boxEstats h4 span {
+  margin: 30px 0 0 0;
+  display: block;
+  font-family: 'MuseoBold', sans-serif;
+  line-height: 50px;
+  font-weight: normal;
+  font-size: 50px;
+  color: #41b4d4;
+}
+.panel p {
+  margin: 15px;
+}
+.panel p span {
+  float: left;
+  display: block;
+  padding: 5px 4px 3px 25px;
+  font-family: 'Museo', sans-serif;
+  line-height: 12px;
+  font-weight: normal;
+  font-size: 12px;
+  color: #5c6e81;
+  margin: 0 40px 0 0;
+}
+.panel p span.matriculado {
+  background: url("../images/matriculado.jpg") center left no-repeat;
+}
+.panel p span.naoMatriculado {
+  background: url("../images/nao-matriculado.jpg") center left no-repeat;
+}
+.panel p.labels {
+  overflow: hidden;
+}
+.panel .amigos {
+  margin: 50px 0 0 0;
+}
+.panel .amigos .amigo {
+  border: 1px solid #b0b9c0;
+  background: #b0b9c0 url("../images/nao-matriculado-icon.jpg") center right no-repeat;
+  position: relative;
+  height: 62px;
+  margin-bottom: 10px;
+  padding: 0 0 0 70px;
+  font-family: 'Museo', sans-serif;
+  line-height: 12px;
+  font-weight: normal;
+  font-size: 12px;
+  color: #ffffff;
+  font-weight: lighter;
+}
+.panel .amigos .amigo img {
+  width: 60px;
+  height: 60px;
+  position: absolute;
+  top: 1px;
+  left: 1px;
+}
+.panel .amigos .amigo.matriculado {
+  border-color: #3ebcd3;
+  background: #3ebcd3 url("../images/matriculado-icon.jpg") center right no-repeat;
+}
+.panel .amigos .amigo h3 {
+  padding: 25px 0;
+  font-family: 'Museo', sans-serif;
+  line-height: 14px;
+  font-weight: normal;
+  font-size: 14px;
+  color: #ffffff;
+}
+/*
+	Box link direto
+*/
+.boxLinkDireto {
+  background: #f4f4f4 url("../images/link-direto-icon.jpg") center left no-repeat;
+  padding: 55px 55px 55px 220px;
+  margin-bottom: 20px;
+}
+.boxLinkDireto p {
+  font-family: 'Museo', sans-serif;
+  line-height: 14px;
+  font-weight: normal;
+  font-size: 14px;
+  color: #b0b9c0;
+  line-height: 20px;
+  margin-bottom: 20px;
+}
+.boxLinkDireto p.copy {
+  font-weight: bold;
+  color: #005e6f;
+}
+/*
+	Box Login
+*/
+.noOvf {
+  overflow: inherit;
+}
+.loginBox {
+  background: #2fa7bc;
+  position: absolute;
+  top: 76px;
+  right: 0;
+  width: 230px;
+  height: 120px;
+  padding: 20px;
+  display: none;
+}
+.loginBox .form-gorup {
+  margin: 0 0 10px 0;
+  position: relative;
+}
+.loginBox .form-gorup label {
+  color: #9ed7e1;
+}
+.loginBox .form-gorup input[type="text"],
+.loginBox .form-gorup input[type="password"] {
+  width: 208px;
+}
+.loginBox .form-gorup input[type="password"] {
+  width: 140px;
+}
+.loginBox .form-gorup .btnSubmit {
+  display: block;
+  font-family: 'MuseoBold', sans-serif;
+  line-height: 12px;
+  font-weight: normal;
+  font-size: 12px;
+  color: #ffffff;
+  background: #0F515D;
+  text-transform: uppercase;
+  padding: 12px 10px;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.loginBox .form-gorup p.msgErro {
+  font-family: 'Museo', sans-serif;
+  line-height: 12px;
+  font-weight: normal;
+  font-size: 12px;
+  color: #ffffff;
+  position: absolute;
+  bottom: -20px;
+  left: 0;
+  background: #D88A8A;
+  padding: 4px;
+}
+.loginBox .form-gorup.erro input[type="text"],
+.loginBox .form-gorup.erro input[type="password"],
+.loginBox .form-gorup.erro select {
+  border-color: #D88A8A;
+}
+.loginBox p a:link,
+.loginBox p a:visited {
+  font-family: 'Museo', sans-serif;
+  line-height: 11px;
+  font-weight: normal;
+  font-size: 11px;
+  color: #ffffff;
+}

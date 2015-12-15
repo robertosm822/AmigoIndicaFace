@@ -1,0 +1,341 @@
+
+/* 
+----------------------------------------------------------------------------------------
+
+Copyright 2009 - Thierry Ruiz - www.dotemplate.com - All rights reserved.
+
+THIS TEMPLATE IS FREE AS LONG AS YOU KEEP THE LINK TO WWW.DOTEMPLATE.COM IN THE FOOTER
+TO REMOVE THE LINK, PLEASE MAKE A 10 DOLLARS DONATION at www.dotemplate.com/#donate
+
+----------------------------------------------------------------------------------------
+*/
+
+
+
+
+html {
+	
+	margin:0 0 0 -1px;
+	padding:0;	
+	overflow-Y: scroll;
+}
+
+
+body {
+	padding:0;
+	margin :0;
+	display:table; 
+	width:100%;	
+}
+
+.contactgrabberbox{ margin: 15px 0 0 2px;
+    overflow: hidden;
+    padding: 0;
+    width: 100%;}
+.contactgrabberbox li{width:125px;height:130px;list-style-type:none;float:left;}
+.contactgrabberbox li:hover{width:125px;cursor:pointer}
+.contactgrabberbox li div img
+{
+    width: 102px;
+    border:none;
+}
+.contactgrabberbox li div{text-align:center;color:#808080;font-size:12px;font-family:"lucida grande",tahoma,verdana,arial,sans-serif;
+                         font-weight:bold}
+.floatleft{float:left}
+.headertxt{float:left;padding-left:10px;padding-top:40px;font-size:40px;color:#6693C6;font-weight:bold;clear:right}
+.break{clear:both}
+ 
+  
+
+
+p {
+	letter-spacing: normal ;
+	line-height: 1.7em ;
+}
+
+h1 {
+	color:#55c400;
+	font-size:22px ;
+	margin:25px 0 10px 0;
+	clear:both;
+}
+
+
+h2 {
+	color:#55c400;
+	font-size:20px ;
+	margin:20px 0 10px 0;
+	clear:both;
+}
+
+
+h3 {
+	color:#55c400;
+	font-size:18px;
+	margin:20px 0 5px 0;
+	clear:both;
+}
+
+h4 {
+	color:#55c400;
+	font-size:18px;
+	margin:0px 0 5px 0;
+	clear:both;
+}
+
+
+
+
+
+
+  
+
+ 
+
+
+
+
+#bg {
+	margin:0 auto;
+	padding:0;
+	background:transparent ;
+	
+ 	background-repeat:no-repeat;	
+	background-position: center top ;
+}
+
+
+
+  
+  
+#header {
+	margin: 0 auto;
+	min-height:0px;
+	height: 0px;
+	width: 880px;
+}
+#headers {
+	margin: 0 auto;
+	min-height:0px;
+	height: 0px;
+	width: 880px;
+}
+#pagesa {
+	background: transparent url( ../tmp/background.png ) no-repeat center top;
+}
+#page {
+	background: transparent url( page-bg.jpg ) no-repeat center top;
+}
+
+
+
+  
+  
+
+#containers {
+	margin:0 auto;
+	width:880px; 
+}
+
+
+#banner {
+	margin: 0 auto;
+	height:230px;
+	width:100%;
+}
+
+#banners {
+	margin: 0 auto;
+	height:130px;
+	width:100%;
+	background: transparent url( ../css/hdr.jpg ) no-repeat center top;
+}
+#Div3
+{
+    margin:0 0 0 10px;
+    position:absolute;
+	height:40px;
+	width:861px;
+	
+    	background: transparent url( ../css/hmenu.jpg ) repeat-x center top;
+}
+  
+
+
+#nav1 {
+	height:40px;
+	margin:0 auto ;
+	width:860px;	
+	text-align:center;
+}
+
+
+#nav1 ul {
+	display:table;
+	margin:0 auto;
+	padding:0;
+	list-style-type:none;
+	position:relative;
+	height:40px;
+	text-transform:uppercase;
+	font-size:11px;
+	font-family:Arial,sans-serif;
+}
+
+
+#nav1 ul li {
+	display:block;
+	float:left;
+	margin:0;
+	padding:0;
+	background:transparent url("hmenu.jpg") repeat-x top left;
+
+}
+
+
+#nav1 ul li a {
+	display:block;
+	float:left;
+	color:#eeeeee;
+	text-decoration:none;
+	padding:0px 40px ;
+	line-height:40px;
+	font-weight:bold;
+}
+
+
+#nav1 ul li a:hover, #nav1 li#current a {
+	color:#55C400;
+	background:transparent url("hmenu-sel.jpg") repeat-x top left;
+}
+
+
+
+
+#content {
+	width:860px;
+	margin:0 auto ;
+	
+}
+
+
+
+
+
+
+
+
+
+#footerWrapper 
+{
+    text-align:center;
+	margin:0 auto;
+	height:140px;
+	padding:0;
+	background:transparent url( footerWrapper-bg.jpg ) no-repeat scroll center top ;
+}
+
+
+#footers {
+	margin:0 auto;
+	padding:0;
+	width:880px;
+	height:60px;
+}
+
+
+  
+  
+#footer {
+	color:#FFFFFF;
+	text-align:center;
+}
+
+#footer a:link, #footer a:visited {
+	color:#FFFFFF;
+}
+
+
+#footer a:hover{
+	color:#55C400;
+	text-decoration:none;
+}
+
+
+  
+  
+
+
+
+
+#right {
+	width:200px;
+	padding:10px 20px 20px 20px;
+}
+
+
+#center {
+	width:580px;	
+	
+}
+
+ 
+#content p {
+	margin-top:10px;
+}
+
+
+  
+  
+  
+  
+
+#sidebar ul.vmenu {
+	list-style: none;
+	margin: 7px 0px 8px 0px; 
+	padding: 0;
+	text-decoration: none;	
+	border-top: 1px solid #d8d8f0;	
+}
+
+
+#sidebar ul.vmenu li {
+	list-style: none;
+	padding: 4px 0 4px 0px;
+	margin: 0 2px;	
+	border-bottom: 1px solid #d8d8f0;
+}
+
+
+
+#sidebar ul.vmenu li a {
+	text-decoration: none;
+	color:#55c400;
+}
+
+
+#sidebar ul.vmenu li a:hover {
+	color:#ffa500;
+}
+
+
+#sidebar ul.vmenu ul { margin: 0 0 0 5px; padding: 0; }
+#sidebar ul.vmenu ul li { border: none; }
+
+
+
+
+
+
+
+.clear {
+	clear: both;
+	display: block;
+	overflow: hidden;
+	visibility: hidden;
+	width: 0;
+	height: 0;
+}
+
+
+
