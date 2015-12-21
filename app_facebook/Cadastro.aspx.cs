@@ -12,7 +12,7 @@ using System.Web.Configuration;
 
 public partial class Cadastro1 : System.Web.UI.Page
 {
-    public string connectionString = @"Data Source=ESTACIODESA-01;Initial Catalog=AmigoIndicaEstacio;User ID=metatron;Password=Est!1234; Integrated Security=SSPI;";
+    public string connectionString = @"Data Source=CONTEXTO_DA_MAQUINA;Initial Catalog=BASE_DE_DADOS;User ID=USER_LOGIN;Password=SENHA_LOGIN; Integrated Security=SSPI;";
     
     protected void Page_Load(object sender, EventArgs e)
     {
