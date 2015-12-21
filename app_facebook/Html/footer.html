@@ -1,4 +1,4 @@
-﻿	<div class="container-fixed">
+	<div class="container-fixed">
 			<div class="footer">
 				<a href="#" class="logoFooter">
 					<span>Estácio, amigo indica Estácio</span>
@@ -55,7 +55,63 @@
 				$('#blMatricula').hide();
 			}
 	});
-
+	
 </script>
+
+ <div id="boxes">
+	     <div id="dialog" class="window">
+		<a href="#" class="close">Fechar [X]</a><br />
+		<br>
+		
+		<span id="stringMessage" style="text-align:center;"></span>
+		
+	    </div>
+      </div>
+      
+      <div id="mask"></div>
+
+<script type="text/javascript">
+
+	
+
+	//tratando url
+	//var urls = window.location.href.toString().split(window.location.host)[1];
+	function ResponseDialogFace(stringMessage){
+	
+		var id = "#dialog";
+		
+		var maskHeight = $(document).height();
+		var maskWidth = $(window).width();
+	
+		$('#mask').css({'width':maskWidth,'height':maskHeight});
+
+		$('#mask').fadeIn(1000);	
+		$('#mask').fadeTo("slow",0.8);	
+	
+		//Get the window height and width
+		var winH = $(window).height();
+		var winW = $(window).width();
+              
+		$(id).css('top',  winH/2 - $(id).height()/2);
+		$(id).css('left', winW/2 - $(id).width()/2);
+	
+		$(id).fadeIn(2000); 
+		$('#stringMessage').html(stringMessage);
+	}
+	
+	$('.window .close').click(function (e) {
+		e.preventDefault();
+		
+		$('#mask').hide();
+		$('.window').hide();
+	});		
+	
+	$('#mask').click(function () {
+		$(this).hide();
+		$('.window').hide();
+	});			
+	
+</script>
+
 </body>
 </html>
