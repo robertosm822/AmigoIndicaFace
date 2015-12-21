@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html dir="ltr" lang="pt-br">
 <head xmlns:fb="http://www.facebook.com/2008/fbml">
 	<meta charset="UTF-8">
@@ -6,15 +6,15 @@
 
 	<!-- Meta TAGs -->
 	<meta name="language" content="pt-BR" />
-	<meta name="author" content="Alexandre Mattos" />
+	<meta name="author" content="No Blind" />
 	<meta name="Generator" content="">
 	<meta name="robots" content="all" />
 
 	<!--De onde e o link compartilhado-->
-	<meta property="og:site_name" content="Amigo Indica Estácio" />
+	<meta property="og:site_name" content="Amigo Indica Estácio - Selecione Seus Amigos" />
 
 	<!--Titulo da pagina-->
-	<meta property="og:title" content="Amigo Indica Estácio" />
+	<meta property="og:title" content="Amigo Indica Estácio - Selecione Seus Amigos" />
 
 	<!--Tipo do conteudo /blog/website/etc...-->
 	<meta property="og:type" content="website" />
@@ -57,7 +57,7 @@
 	<script src="scripts/jquery-1.10.2.min.js"></script>
 	<script src="scripts/scripts.js"></script>
 	<script src="scripts/Functions.js" type="text/javascript"></script>
-	<script src="//connect.facebook.net/en_US/sdk.js" type="text/javascript"></script>
+	<script src="https://connect.facebook.net/en_US/sdk.js" type="text/javascript"></script>
 
 	<script>         
 	//Teste api 	
@@ -106,9 +106,7 @@
        
 		}
 		//FORCAR ACEITAR PERMISSAO DE USO DO APP FACEBOOK
-		function permitirDadosAmigos(){ 
-
-			
+		function permitirDadosAmigos(){
 		
 			FB.ui({
 				appId: '742792935864343',
@@ -118,14 +116,19 @@
 			},
 			function(response) {
 				// check response.perms that it has all the required permissions...  if so, continue to next page.
-				console.log(response.error);
+				//console.log(response);
+				if(response == null){
+					alert("Você deve aceitar o minimo de permissões para usar este APP!");
+					window.location.href = "http://suacaranotelao.estacio.br/app_facebook/Default";
+				}
 				//window.location.reload();
-				if(response.error == null){
+				if( response.error == null){
 					FB.getLoginStatus(function(response){
 						//console.log("https://graph.facebook.com/v2.4/me?fields=friends&limit=400&access_token="+response.authResponse.accessToken);
 						$('#access_token').val(response.authResponse.accessToken);
 						console.log(response.authResponse.userID);
 						$('#idUser').val(response.authResponse.userID);
+						$('#restrit a').attr('href', "Painel-de-amigos.aspx?fb="+response.authResponse.userID);
 						//ALIMENTAR CAMPO DE CADASTRO
 						$('#idUserFace').attr( 'value', $('#idUser').val() );
 						$('#tbIDUsuarioFace').attr('value', $('#idUser').val() );
@@ -155,6 +158,9 @@
     		
 					);
 					*/
+				} else {
+					alert("Você deve aceitar o minimo de permissões para usar este APP!");
+					window.location.href = "http://suacaranotelao.estacio.br/app_facebook/Default";
 				}
 				//------------------------------------------------
 			}
@@ -163,7 +169,7 @@
 }
 
 function getUserToken2() {
-    alert($('#idUser').val() );
+    //alert($('#idUser').val() );
 	var user_ID = $('#idUser').val() ;
 	var accessToken = $('#access_token').val();
 	
@@ -173,14 +179,101 @@ function getUserToken2() {
                   var lastname = response.last_name;
                   var email = response.email;
                   var facebook_id = response.id;
-                  console.log(response.email +" | "+ accessToken);
+                  
+				  //console.log(response.email +" | "+ accessToken);
+				  /* AJAX para rerificar se usuario ja encontrase cadastrado no programa */
+				   $.ajax({
+						url: "http://suacaranotelao.estacio.br/app_facebook/VerificarUser/GetCurrentData",
+						dataType: "html",
+						type: "POST",
+						data: "restIDFace="+ facebook_id,
+						success: function(data){
+							console.log(data);
+						}
+				   });
+				  
             });//close /me response
  
        
 }
 
+function FacebookInviteFriends(){
+	FB.ui(
+		{
+			method: 'send',
+			link: 'http://suacaranotelao.estacio.br/app_facebook/Registro?fb='+$('#idUser').val(),
+			message: 'Convido você a se inscrever e indicar seus amigos também!'
+		},
+		function(response){
+			if(response && !response.error_message){
+				ResponseDialogFace("Mensagens enviadas com sucesso!");
+			}else{
+				ResponseDialogFace("Erro ao enviar a mensagem...");
+			}
+		}
+	);
+}
+
+
 	</script>
 
+	<!-- POPUP INICIAL -->
+<style type="text/css">
+
+a {color:#333; text-decoration:none}
+a:hover {color:#ccc; text-decoration:none}
+
+#mask {
+  position:absolute;
+  left:0;
+  top:0;
+  z-index:9000;
+  background-color:#000;
+  display:none;
+}
+  
+#boxes .window {
+  position:absolute;
+  left:0;
+  top:0;
+  width:440px;
+  height:200px;
+  display:none;
+  z-index:9999;
+  padding:20px;
+}
+
+#boxes #dialog {
+  width:283px; 
+  height:114px;
+  padding:10px;
+  background-color:#ffffff;
+}
+
+.close{display:block; text-align:right;}
+
+/* mensagens de erro */
+.alert-danger 
+{
+    color: #a94442;
+    background-color: #f2dede;
+    border-color: #ebccd1;
+    }
+.alert
+{
+    margin-top: 11px;
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+.alert-success
+{
+    color: #3c763d;
+    background-color: #dff0d8;
+    border-color: #d6e9c6;    
+}
+</style> 
 </head>
 <body>
 	<div class="page">
@@ -205,21 +298,9 @@ function getUserToken2() {
 					<li id="dvds">
 						<a href="Duvidas.aspx">Dúvidas</a>
 					</li>
-					<li class="ddown">
-						<a href="Painel-de-amigos.aspx">Login</a>
-						<div class="loginBox">
-							<form action="" method="">
-								<div class="form-gorup">
-									<label for="name">Acesso a Area Restrista</label>
-									<input type="text" name="name" id="name" placeholder="Digite seu email">
-								</div>
-								<div class="form-gorup">
-									<input type="password" name="pass" id="pass" placeholder="Digite sua senha">
-									<input class="btnSubmit" type="submit" value="Entrar">
-								</div>
-							</form>
-							<p><a href="#">Esqueci minha senha</a></p>
-						</div>
+					<li id="restrit">
+						<a href="Painel-de-amigos.aspx?fb=">Area Restrita</a>
+						
 					</li>
 				</ul>
 			</div>
