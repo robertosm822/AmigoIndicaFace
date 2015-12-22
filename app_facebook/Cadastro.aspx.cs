@@ -4,11 +4,15 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Runtime.InteropServices;
+//using Utilidades;
+
 
 //TESTANDO CONEXAO COM A BASE DE DADOS
 using System.Data;
 using System.Data.SqlClient;
-using System.Web.Configuration;
+using System.Web.Configuration; 
+
 
 public partial class Cadastro1 : System.Web.UI.Page
 {
@@ -86,7 +90,7 @@ public partial class Cadastro1 : System.Web.UI.Page
                     insertSQL = "INSERT INTO Usuarios (";
                     insertSQL += "Nome, Email, CPF, Tipo, DataNascimento, Senha, ConfirmaSenha, Data, NumeroInscricao, NumeroMatricula, DataMatricula, Instituicao, Campus, Curso, origem, Telefone, idUserFace  )";
                     insertSQL += "VALUES (";
-                    insertSQL += "@Nome, @Email, @CPF, @Tipo, @DataNascimento, @Senha, @ConfirmaSenha, @Data, @NumeroInscricao, @NumeroMatricula, @DataMatricula, @Instituicao, @Campus, @Curso, @origem, @Telefone, @idUserFace  )";
+                    insertSQL += "@Nome, @Email, @CPF, @Tipo, GETDATE(), @Senha, @ConfirmaSenha, GETDATE(), @NumeroInscricao, @NumeroMatricula, GETDATE(), @Instituicao, @Campus, @Curso, @origem, @Telefone, @idUserFace  )";
 
                     SqlConnection con = new SqlConnection(connectionString);
                     SqlCommand cmd = new SqlCommand(insertSQL, con);
@@ -95,8 +99,8 @@ public partial class Cadastro1 : System.Web.UI.Page
                     cmd.Parameters.AddWithValue("@Email", tbEmail.Text);
                     cmd.Parameters.AddWithValue("@CPF", tbCPF.Text);
                     cmd.Parameters.AddWithValue("@Tipo", "1");
-                    cmd.Parameters.AddWithValue("@DataNascimento", Convert.ToDateTime(tbDataNascimento.Text));
-                    cmd.Parameters.AddWithValue("@Senha", tbSenha.Text);
+                    //cmd.Parameters.AddWithValue("@DataNascimento", Convert.ToDateTime(tbDataNascimento.Text));
+                    cmd.Parameters.AddWithValue("@Senha", tbSenha.Text  );
                     cmd.Parameters.AddWithValue("@ConfirmaSenha", tbConfirmaSenha.Text);
                     cmd.Parameters.AddWithValue("@Data", DateTime.Now.ToString());
                     cmd.Parameters.AddWithValue("@NumeroInscricao", "NULL");
@@ -116,7 +120,7 @@ public partial class Cadastro1 : System.Web.UI.Page
                         added = cmd.ExecuteNonQuery();
                         tbResposta.Text = added.ToString() + " Campos inseridos...";
                         //Response.Redirect("Default.aspx");
-                        lblmsg.Text = "<script>$('.formularios h2').append('<div class=\"alert alert-success\">Cadastro realizado com sucesso!</div>'); $('form').each(function(){ $('form input').val(''); }); </script>";
+                        lblmsg.Text = "<script>$('.formularios h2').append('<div class=\"alert alert-success\">Parabéns.  Seu cadastro foi realizado com sucesso! <br> Clique no botão abaixo e convide seus amigos! <br> <input id=\"Botao\" class=\"btnSubmit\" onclick=\"FacebookInviteFriends()\" type=\"button\" value=\"AGORA INDIQUE SEUS AMIGOS\">   </div>'); $('form').each(function(){ $('form input').val(''); }); </script>"; 
                     }
                     catch (Exception err)
                     {
@@ -182,5 +186,18 @@ public partial class Cadastro1 : System.Web.UI.Page
         digito = digito + resto.ToString();
         return cpf.EndsWith(digito);
     }
+
+    /*
+    public static string EncriptarSHA1(string str)
+    {
+        SHA1 sha1 = SHA1Managed.Create();
+        ASCIIEncoding encoding = new ASCIIEncoding();
+        byte[] stream = null;
+        StringBuilder sb = new StringBuilder();
+        stream = sha1.ComputeHash(encoding.GetBytes(str));
+        for (int i = 0; i < stream.Length; i++) sb.AppendFormat("{0:x2}", stream[i]);
+        return sb.ToString();
+    }
+     */
 
 }

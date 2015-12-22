@@ -1,28 +1,7 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Cadastro.aspx.cs" Inherits="Cadastro1" %>
 <!--#include file="Html/header.html"-->
 
-<style>
-.alert-danger 
-{
-    color: #a94442;
-    background-color: #f2dede;
-    border-color: #ebccd1;
-    }
-.alert
-{
-    margin-top: 11px;
-    padding: 15px;
-    margin-bottom: 20px;
-    border: 1px solid transparent;
-    border-radius: 4px;
-}
-.alert-success
-{
-    color: #3c763d;
-    background-color: #dff0d8;
-    border-color: #d6e9c6;    
-}
-</style>    
+  
 <!-- Titulo da sessão -->
 	<div class="container-fixed">
 		<div class="pageName">

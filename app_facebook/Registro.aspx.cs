@@ -13,7 +13,7 @@ using System.Web.Configuration;
 public partial class Registro : System.Web.UI.Page
 {
     public string CPF;
-    public string connectionString = @"Data Source=ESTACIODESA-01;Initial Catalog=AmigoIndicaEstacio;User ID=metatron;Password=Est!1234; Integrated Security=SSPI;";
+    public string connectionString = @"Data Source=; Integrated Security=SSPI;";
     
 
     protected void Page_Load(object sender, EventArgs e)
